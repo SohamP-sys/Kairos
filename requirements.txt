@@ -1,0 +1,5 @@
+# Required for baseline, JSON processing, and heuristic FPV importance.
+numpy==2.2.6
+# Optional zero-shot SigLIP support (install separately if using cached weights):
+# torch
+# open_clip_torch
