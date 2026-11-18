@@ -149,7 +149,6 @@ def compute_action_coverage(
         totals["min_1s"] += len(cap_1s) / n
         totals["half_contained"] += len(cap_half) / n
         totals["penalized_any"] += (len(cap_any) / n) * penalty
-        counted += 1
 
     if counted == 0:
         return totals

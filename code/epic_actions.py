@@ -104,39 +104,81 @@ def decode_epic_actions(
     motion_1hz = cache.get("motion_1hz", np.ones(int(max(1, dur)), dtype=np.float32))
     drift_1hz = cache.get("drift_1hz", np.zeros(int(max(1, dur)), dtype=np.float32))
     raw_instances: List[Dict] = []
+    prior_file = (Path(weights_dir) / "epic_priors.npz") if weights_dir else Path("weights/epic_priors.npz")
+    action_verbs = action_nouns = None
+    if prior_file.is_file():
+        with np.load(prior_file, allow_pickle=False) as data:
+            if "action_verb" in data and "action_noun" in data:
+                action_verbs = data["action_verb"].astype(np.int32)
+                action_nouns = data["action_noun"].astype(np.int32)
 
     for scale_tag, default_w in [("2s", 2.2), ("4s", 3.8)]:
         win_key = f"windows_{scale_tag}"
         if win_key not in cache:
             continue
         windows = cache[win_key]
-        v_probs = _softmax(cache[f"verb_logits_{scale_tag}"][:, :n_v], temp=temp_v)
-        n_probs = _softmax(cache[f"noun_logits_{scale_tag}"][:, :n_n], temp=temp_n)
-
-        noun_census = np.mean(n_probs, axis=0, keepdims=True)
-        n_probs = n_probs * np.power(noun_census / (np.mean(noun_census) + 1e-8), 0.25)
-        n_probs = n_probs / (np.sum(n_probs, axis=-1, keepdims=True) + 1e-8)
-
-        gate = compute_soft_actionness_gate(v_probs, motion_1hz, drift_1hz, windows, gate_floor=0.30)
-
         pair_curves: Dict[Tuple[int, int], List[Tuple[float, float]]] = {}
-        for w_idx, (ws, we) in enumerate(windows):
-            center = 0.5 * float(ws + we)
-            top_v = np.argsort(v_probs[w_idx])[-3:]
-            top_n = np.argsort(n_probs[w_idx])[-3:]
-            cands = []
-            for vi in top_v:
-                for ni in top_n:
-                    log_sc = (
-                        alpha * np.log(v_probs[w_idx, vi] + 1e-8)
-                        + beta * np.log(n_probs[w_idx, ni] + 1e-8)
-                        + log_prior[vi, ni]
-                    )
-                    prob = float(np.exp(np.clip(log_sc, -20.0, 0.0))) * float(gate[w_idx])
-                    cands.append((prob, int(vi), int(ni)))
-            cands.sort(reverse=True)
-            for prob, vi, ni in cands[:top_k_per_window]:
-                pair_curves.setdefault((vi, ni), []).append((center, prob))
+        joint_key = f"joint_logits_{scale_tag}"
+        if (
+            joint_key in cache
+            and action_verbs is not None
+            and action_nouns is not None
+            and cache[joint_key].shape[1] == len(action_verbs) == len(action_nouns)
+        ):
+            action_probs = _softmax(cache[joint_key])
+            v_probs = np.zeros((len(windows), n_v), dtype=np.float32)
+            for action_idx, verb_idx in enumerate(action_verbs):
+                if 0 <= verb_idx < n_v:
+                    v_probs[:, verb_idx] += action_probs[:, action_idx]
+            gate = compute_soft_actionness_gate(
+                v_probs, motion_1hz, drift_1hz, windows, gate_floor=0.30
+            )
+
+            k = min(max(1, top_k_per_window), action_probs.shape[1])
+            top_actions = np.argpartition(
+                action_probs, -k, axis=1
+            )[:, -k:]
+            for w_idx, (ws, we) in enumerate(windows):
+                center = 0.5 * float(ws + we)
+                order = top_actions[w_idx][
+                    np.argsort(action_probs[w_idx, top_actions[w_idx]])[::-1]
+                ]
+                for action_idx in order:
+                    vi = int(action_verbs[action_idx])
+                    ni = int(action_nouns[action_idx])
+                    if not (0 <= vi < n_v and 0 <= ni < n_n):
+                        continue
+                    score = float(action_probs[w_idx, action_idx]) * float(gate[w_idx])
+                    if score > 0.0:
+                        pair_curves.setdefault((vi, ni), []).append((center, score))
+        else:
+            v_probs = _softmax(cache[f"verb_logits_{scale_tag}"][:, :n_v], temp=temp_v)
+            n_probs = _softmax(cache[f"noun_logits_{scale_tag}"][:, :n_n], temp=temp_n)
+
+            noun_census = np.mean(n_probs, axis=0, keepdims=True)
+            n_probs = n_probs * np.power(noun_census / (np.mean(noun_census) + 1e-8), 0.25)
+            n_probs = n_probs / (np.sum(n_probs, axis=-1, keepdims=True) + 1e-8)
+
+            gate = compute_soft_actionness_gate(
+                v_probs, motion_1hz, drift_1hz, windows, gate_floor=0.30
+            )
+            for w_idx, (ws, we) in enumerate(windows):
+                center = 0.5 * float(ws + we)
+                top_v = np.argsort(v_probs[w_idx])[-3:]
+                top_n = np.argsort(n_probs[w_idx])[-3:]
+                cands = []
+                for vi in top_v:
+                    for ni in top_n:
+                        log_sc = (
+                            alpha * np.log(v_probs[w_idx, vi] + 1e-8)
+                            + beta * np.log(n_probs[w_idx, ni] + 1e-8)
+                            + log_prior[vi, ni]
+                        )
+                        prob = float(np.exp(np.clip(log_sc, -20.0, 0.0))) * float(gate[w_idx])
+                        cands.append((prob, int(vi), int(ni)))
+                cands.sort(reverse=True)
+                for prob, vi, ni in cands[:top_k_per_window]:
+                    pair_curves.setdefault((vi, ni), []).append((center, prob))
 
         for (vi, ni), pts in pair_curves.items():
             pts.sort(key=lambda x: x[0])
@@ -161,9 +203,6 @@ def decode_epic_actions(
                     })
 
     deduped = temporal_soft_nms(raw_instances, sigma=0.40, min_score=1e-4)[:max_actions]
-    if deduped:
-        max_sc = max(x["score"] for x in deduped) + 1e-8
-        for rank, item in enumerate(deduped):
-            norm_sc = (item["score"] / max_sc) * np.exp(-rank / 1200.0)
-            item["score"] = round(float(np.clip(norm_sc, 0.01, 0.99)), 4)
+    for item in deduped:
+        item["score"] = round(float(np.clip(item["score"], 0.0, 1.0)), 4)
     return deduped

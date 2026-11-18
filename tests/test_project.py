@@ -28,9 +28,33 @@ class ProjectTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    d=Path(d); videos=d/"videos"; videos.mkdir(); outputs=d/"outputs"
    manifest=d/"manifest.csv"; manifest.write_text("video_id,duration_sec,dataset\nmissing_id,60,fpvsum\n",encoding="utf-8")
-   subprocess.run([sys.executable,str(ROOT/"batch.py"),str(videos),str(outputs),"--manifest",str(manifest),"--fill-missing"],check=True,timeout=60)
+   result=subprocess.run([sys.executable,str(ROOT/"batch.py"),str(videos),str(outputs),"--manifest",str(manifest),"--fill-missing"],capture_output=True,text=True,timeout=60)
+   self.assertNotEqual(result.returncode,0)
+   self.assertIn("not submission-ready",result.stderr)
    data=json.loads((outputs/"missing_id.json").read_text()); ok,err,_=validate_output(data,expected_video_id="missing_id",manifest_duration=60)
    self.assertTrue(ok,err)
+ def test_manifest_missing_video_fails_without_placeholder(self):
+  with tempfile.TemporaryDirectory() as d:
+   d=Path(d); videos=d/"videos"; videos.mkdir(); outputs=d/"outputs"
+   manifest=d/"manifest.csv"; manifest.write_text("video_id,duration_sec,dataset\nmissing_id,60,fpvsum\n",encoding="utf-8")
+   result=subprocess.run([sys.executable,str(ROOT/"batch.py"),str(videos),str(outputs),"--manifest",str(manifest)],capture_output=True,text=True,timeout=60)
+   self.assertNotEqual(result.returncode,0)
+   self.assertIn("source video is missing",result.stderr)
+ def test_submission_validator_checks_manifest_and_team_consistency(self):
+  with tempfile.TemporaryDirectory() as d:
+   d=Path(d); outputs=d/"outputs"; outputs.mkdir()
+   manifest=d/"manifest.csv"; manifest.write_text("video_id,duration_sec,dataset\none,30,fpvsum\ntwo,40,fpvsum\n",encoding="utf-8")
+   first=assemble_prediction("TEAM","one",30.0)
+   (outputs/"one.json").write_text(json.dumps(first),encoding="utf-8")
+   command=[sys.executable,str(ROOT/"tools/validate_outputs.py"),str(outputs),"--manifest",str(manifest),"--team-id","TEAM"]
+   result=subprocess.run(command,capture_output=True,text=True,timeout=60)
+   self.assertNotEqual(result.returncode,0)
+   self.assertIn("missing manifest outputs",result.stdout)
+   second=assemble_prediction("OTHER","two",40.0)
+   (outputs/"two.json").write_text(json.dumps(second),encoding="utf-8")
+   result=subprocess.run(command,capture_output=True,text=True,timeout=60)
+   self.assertNotEqual(result.returncode,0)
+   self.assertIn("team_id",result.stdout)
  def test_synthetic_video_pipeline(self):
   with tempfile.TemporaryDirectory() as d:
    v=Path(d)/"synthetic.mp4"; out=Path(d)/"out.json"
@@ -43,7 +67,7 @@ class ProjectTests(unittest.TestCase):
   import fpv_pipeline
   class CookingRouter:
    def route_and_label(self,frames,audio):
-    return "cooking",0.9,{"cooking":0.9},np.zeros((0,64),dtype=np.float32)
+    return "parkour",0.9,{"parkour":0.9},np.zeros((0,64),dtype=np.float32)
   with tempfile.TemporaryDirectory() as d:
    video=Path(d)/"kitchen.mp4"
    video.touch()
@@ -56,7 +80,8 @@ class ProjectTests(unittest.TestCase):
         patch.object(pipeline,"_create_epic_cache") as create_cache, \
         patch("epic_actions.decode_epic_actions",return_value=[]) as decode, \
         patch("epic_select.select_epic_highlights",return_value=[{"segment":[0,6],"score":0.5}]), \
-        patch.object(fpv_pipeline,"run_fpv_branch") as fpv:
+        patch.object(fpv_pipeline,"run_fpv_branch") as fpv, \
+        patch.dict("os.environ",{"KAIROS_DATASET":"epic_kitchens_100"}):
     result=pipeline.process_video(video)
    self.assertEqual(result["label"]["name"],"cooking")
    self.assertEqual(result["actions"],[])
@@ -144,3 +169,67 @@ class TestKTSAndFPVModels(unittest.TestCase):
         self.assertLessEqual(sum(e-s for s,e in chosen),15.0+1e-3)
         self.assertTrue(all(e-s>=4.0 for s,e in chosen))
         self.assertTrue(all(chosen[i][1]<=chosen[i+1][0] for i in range(len(chosen)-1)))
+
+    def test_epic_decoder_preserves_joint_action_pairs_and_scores(self):
+        from epic_actions import decode_epic_actions,load_epic_vocab_and_priors
+        verbs,nouns,_,_,_=load_epic_vocab_and_priors(ROOT/"weights")
+        prior_path=ROOT/"weights/epic_priors.npz"
+        with np.load(prior_path,allow_pickle=False) as data:
+            action_verbs=data["action_verb"]
+            action_nouns=data["action_noun"]
+        pair_a=0
+        pair_b=next(i for i,(v,n) in enumerate(zip(action_verbs,action_nouns)) if v!=action_verbs[pair_a] and n!=action_nouns[pair_a])
+        logits=np.full((1,3806),-100.0,dtype=np.float32)
+        logits[0,pair_a]=0.0
+        logits[0,pair_b]=-0.1
+        cache={
+            "duration_sec":np.asarray([8.0],dtype=np.float32),
+            "windows_2s":np.asarray([[3.0,5.0]],dtype=np.float32),
+            "joint_logits_2s":logits,
+            "motion_1hz":np.ones(8,dtype=np.float32),
+            "drift_1hz":np.zeros(8,dtype=np.float32),
+        }
+        actions=decode_epic_actions(cache,ROOT/"weights",top_k_per_window=2)
+        pairs={(action["verb"],action["noun"]) for action in actions}
+        expected={
+            (verbs[int(action_verbs[pair_a])],nouns[int(action_nouns[pair_a])]),
+            (verbs[int(action_verbs[pair_b])],nouns[int(action_nouns[pair_b])]),
+        }
+        self.assertEqual(pairs,expected)
+        self.assertTrue(all(0.0 < action["score"] <= 1.0 for action in actions))
+
+    def test_avion_extractor_writes_joint_logits_without_cli_globals(self):
+        from unittest.mock import patch
+        from tools import extract_avion_epic
+        class FakeClassifier:
+            enabled=True
+            device="cpu"
+            def __init__(self,*args,**kwargs): pass
+            def load_action_mapping(self,path): return True
+            def predict_joint_logits(self,clips,batch_size=1):
+                return np.zeros((len(clips),3806),dtype=np.float32)
+            def marginalize(self,logits):
+                return np.full((len(logits),97),1/97,dtype=np.float32),np.full((len(logits),300),1/300,dtype=np.float32)
+        with tempfile.TemporaryDirectory() as d:
+            d=Path(d); video=d/"clip.mp4"; video.touch(); output=d/"cache.npz"
+            with patch.object(extract_avion_epic,"probe_duration",return_value=3.0), \
+                 patch.object(extract_avion_epic,"decode_frames",return_value=np.zeros((24,224,224,3),dtype=np.uint8)), \
+                 patch.object(extract_avion_epic,"AVIONEpicClassifier",FakeClassifier):
+                extract_avion_epic.extract_avion_cache(video,output,batch_size=2)
+            with np.load(output,allow_pickle=False) as cache:
+                self.assertIn("joint_logits_2s",cache.files)
+                self.assertIn("joint_logits_4s",cache.files)
+
+    def test_action_coverage_averages_each_video_once(self):
+        from scorer import compute_action_coverage
+        pair={"verb":"open","noun":"fridge"}
+        gts={
+            "first":[{**pair,"segment":[0.0,5.0]}],
+            "second":[{**pair,"segment":[0.0,5.0]}],
+        }
+        preds={
+            "first":{"duration_sec":30.0,"highlights":[{"segment":[0.0,5.0]}]},
+            "second":{"duration_sec":30.0,"highlights":[{"segment":[0.0,5.0]}]},
+        }
+        coverage=compute_action_coverage(preds,gts)
+        self.assertAlmostEqual(coverage["any_overlap"],1.0)

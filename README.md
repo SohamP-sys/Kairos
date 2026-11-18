@@ -30,7 +30,7 @@ The output JSON has `team_id`, `video_id`, `duration_sec`, `label`, `actions`, a
 - **Optional FPV route/classifier:** SigLIP text prompt ensemble, if local model and `open_clip` are installed; otherwise conservative `other` label.
 - **Branch routing:** a `cooking` route uses the EPIC cached-logit decoder when its AVION cache and class/prior files are present. Until then, it keeps the cooking label and uses the motion fallback instead of being sent through the sports classifier.
 - **FPV highlights:** combined motion, audio spectral flux/high-band energy, embedding novelty, and optional category prompt similarity. These are heuristic signals; no annotation-based training is performed.
-- **EPIC action decoder:** `epic_actions.py` consumes a per-video `.npz` cache with window timestamps and verb/noun logits. It applies priors, soft actionness gate, peaks, and temporal soft-NMS. `tools/extract_avion_epic.py` produces caches from the real AVION ViT-B checkpoint.
+- **EPIC action decoder:** `epic_actions.py` consumes AVION joint-action logits when present, preserving the model's verb–noun pair confidence; older caches with separate verb/noun logits remain readable. It applies a soft actionness gate, temporal peaks, and soft-NMS.
 - **EPIC highlights:** instance-aware noisy-OR/max greedy selection in `epic_select.py`.
 - **Fallback ladder:** optional stages fail independently; final assembly clamps timestamps, sanitizes labels/actions/highlights, and writes JSON.
 
@@ -39,7 +39,8 @@ Place an NPZ at `weights/epic_cache/<video_id>.npz`. It must contain:
 
 - `duration_sec` (single numeric value)
 - `windows_2s`, `windows_4s` arrays shaped `[N,2]` with start/end seconds
-- `verb_logits_2s`, `noun_logits_2s`, `verb_logits_4s`, `noun_logits_4s`
+- preferred: `joint_logits_2s`, `joint_logits_4s`, each with 3806 class scores per window
+- backward-compatible: `verb_logits_2s`, `noun_logits_2s`, `verb_logits_4s`, `noun_logits_4s`
 - optional `motion_1hz`, `drift_1hz`
 
 Action class keys and pair priors are loaded from `weights/epic_priors.npz` when available. Without that file, the decoder uses placeholder keys and uniform priors, so decoded action labels are not meaningful. Use the organizer vocabulary before packaging.
@@ -57,10 +58,30 @@ python tools/extract_avion_epic.py input.mp4 weights/epic_cache/input.npz
 
 The extractor loads the MD5-verified checkpoint at
 `weights/avion/avion_finetune_cls_lavila_vitb_best.pt`, uniformly samples 16
-frames per window, and marginalizes the checkpoint's 3806 joint-action logits
-into EPIC verb and noun probabilities. It uses CPU/MPS/CUDA as available and
+frames per window, and stores the checkpoint's 3806 joint-action logits along
+with verb/noun marginals for backward compatibility. It uses CPU/MPS/CUDA as available and
 does not require flash-attention at inference. PyTorch/timm deprecation warnings
 during model import are non-fatal; extraction progress is printed separately.
+
+## Manifest batch inference and validation
+
+Use the manifest's `dataset` column to select the EPIC or FPV route and set the
+same team ID for every output:
+
+```bash
+python batch.py /path/to/videos outputs --manifest details/manifest.csv --team-id YOUR_TEAM_ID
+python tools/validate_outputs.py outputs --manifest details/manifest.csv --team-id YOUR_TEAM_ID --classes supported_classes.json
+```
+
+Batch inference fails when a manifest video is missing or an output is invalid.
+Do not use `--fill-missing` for submission: it deliberately emits metadata-only
+placeholders, not video predictions. For final acceptance, also run the exact
+organizer-provided `validate.py` on the entire output directory.
+
+The public source repository does not include large model checkpoints or raw
+videos. The final submission archive must include all required model weights
+and run successfully offline; the inference entry point must not download
+weights at runtime.
 
 ## Disk-conscious data utilities
 
@@ -81,7 +102,7 @@ Tests use a synthetic video and a corrupt file to exercise fallback behavior. Th
 ## Reproducibility and limitations
 
 - Inference is deterministic for the fallback path.
-- No video ID, filename, or dataset label is used as a prediction feature. Filename stem is used only for required output `video_id` and cache lookup.
+- Video IDs and filenames are not prediction features. In manifest batch mode, the official dataset column selects the dataset-specific route; single-video inference uses content-based routing.
 - This baseline is not trained or calibrated on hackathon annotations.
 - Small videos under 4.05 s cannot satisfy the minimum highlight length; the validator/scoring special case needs organizer clarification.
 - Current highlight selector uses temporal windows, not semantic KTS shots.

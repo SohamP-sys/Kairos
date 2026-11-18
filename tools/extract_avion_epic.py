@@ -255,12 +255,13 @@ def extract_avion_cache(
                 )
             )
             completed = min(start + len(batch_windows), len(windows))
-            if completed == len(windows) or completed % progress_step < args.batch_size:
+            if completed == len(windows) or completed % progress_step < batch_size:
                 print(f"[AVION] {scale_tag}: {completed}/{len(windows)} windows", flush=True)
             del clips
         joint_logits = np.concatenate(logits_batches, axis=0)
         verb_probs, noun_probs = classifier.marginalize(joint_logits)
         cache[f"windows_{scale_tag}"] = windows
+        cache[f"joint_logits_{scale_tag}"] = joint_logits.astype(np.float32)
         cache[f"verb_logits_{scale_tag}"] = np.log(
             verb_probs.astype(np.float32) + 1e-8
         )
@@ -268,8 +269,9 @@ def extract_avion_cache(
             noun_probs.astype(np.float32) + 1e-8
         )
         print(
-            f"{args.video.name}: {scale_tag} "
-            f"{len(windows)} windows extracted"
+            f"[AVION] {video_path.name}: {scale_tag} "
+            f"{len(windows)} windows extracted",
+            flush=True,
         )
         del joint_logits, verb_probs, noun_probs, logits_batches
 
