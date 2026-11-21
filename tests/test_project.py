@@ -96,6 +96,29 @@ class ProjectTests(unittest.TestCase):
    with patch("tools.stream_manifest.subprocess.run",side_effect=download):
     result=_download_video("P01_11","epic_kitchens_100",video_work,downloader)
    self.assertEqual(result,video_work/"P01_11.mp4")
+ def test_epic_download_prefers_md5_verifier_for_existing_video(self):
+  from tools import stream_manifest
+  with tempfile.TemporaryDirectory() as d:
+   root=Path(d); downloader_dir=root/"official"; downloader_dir.mkdir()
+   downloader=downloader_dir/"epic_downloader.py"; downloader.touch()
+   verifier=downloader_dir/"epic_video_downloader_verify.py"; verifier.touch()
+   raw=root/"raw"; video_work=raw/"P01_11"
+   target=video_work/"EPIC-KITCHENS"/"P01"/"videos"/"P01_11.MP4"
+   target.parent.mkdir(parents=True)
+   (video_work/stream_manifest.OWNED_MARKER).write_text(json.dumps({
+    "video_id":"P01_11","raw_root":str(raw.resolve())
+   }))
+   target.write_bytes(b"possibly-truncated")
+   def verify_download(command,check,cwd):
+    self.assertTrue(check)
+    self.assertEqual(cwd,downloader_dir)
+    self.assertEqual(command[1],str(verifier))
+    self.assertIn("--verify-ssl",command)
+    target.write_bytes(b"md5-verified")
+   with patch("tools.stream_manifest.subprocess.run",side_effect=verify_download) as run:
+    result=stream_manifest._download_video("P01_11","epic_kitchens_100",video_work,downloader)
+   self.assertEqual(result,target)
+   run.assert_called_once()
  def test_stream_publishes_then_deletes_only_after_validation(self):
   from types import SimpleNamespace
   from tools import stream_manifest

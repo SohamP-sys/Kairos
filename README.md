@@ -176,8 +176,10 @@ python tools\stream_manifest.py manifest.csv `
 
 The runner downloads one source, then can prefetch at most one next source while
 inference runs if at least 8 GB remains above the configured free-space reserve.
-It validates and publishes each JSON before removing only that runner-owned
-source directory. Valid JSONs remain in `outputs/`; a failed download,
+For EPIC, it uses the downloader's MD5-verifying, range-resumable helper when
+available before passing a source to inference. It validates and publishes each
+JSON before removing only that runner-owned source directory. Valid JSONs remain
+in `outputs/`; a failed download,
 inference, or validation stops the run and retains the affected source for
 troubleshooting. This overlap can use space for two raw videos at once, but
 does not download the full dataset at once. The reserve limits peak storage,

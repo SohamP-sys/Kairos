@@ -154,10 +154,22 @@ def _download_video(
         encoding="utf-8",
     )
 
-    existing = list(video_work.rglob(video_id + ".mp4"))
+    existing = [
+        path
+        for path in video_work.rglob("*")
+        if path.is_file()
+        and path.stem.lower() == video_id.lower()
+        and path.suffix.lower() == ".mp4"
+    ]
     if len(existing) > 1:
         raise RuntimeError(f"Found multiple MP4 files for {video_id} in {video_work}")
-    if existing:
+    verified_epic_downloader = epic_downloader.with_name(
+        "epic_video_downloader_verify.py"
+    )
+    use_verified_epic_downloader = (
+        dataset in EPIC_DATASETS and verified_epic_downloader.is_file()
+    )
+    if existing and not use_verified_epic_downloader:
         return existing[0]
 
     if dataset in EPIC_DATASETS:
@@ -165,15 +177,27 @@ def _download_video(
             raise FileNotFoundError(
                 f"Official EPIC downloader not found: {epic_downloader}"
             )
-        command = [
-            sys.executable,
-            str(epic_downloader),
-            "--videos",
-            "--specific-videos",
-            video_id,
-            "--output-path",
-            str(video_work),
-        ]
+        if use_verified_epic_downloader:
+            command = [
+                sys.executable,
+                str(verified_epic_downloader),
+                "--specific-videos",
+                video_id,
+                "--output-path",
+                str(video_work),
+                "--verify-ssl",
+                "--no-md5-progress",
+            ]
+        else:
+            command = [
+                sys.executable,
+                str(epic_downloader),
+                "--videos",
+                "--specific-videos",
+                video_id,
+                "--output-path",
+                str(video_work),
+            ]
     else:
         youtube_id = youtube_video_id(video_id)
         command = [
@@ -196,7 +220,13 @@ def _download_video(
         check=True,
         cwd=epic_downloader.parent if dataset in EPIC_DATASETS else video_work,
     )
-    downloaded = list(video_work.rglob(video_id + ".mp4"))
+    downloaded = [
+        path
+        for path in video_work.rglob("*")
+        if path.is_file()
+        and path.stem.lower() == video_id.lower()
+        and path.suffix.lower() == ".mp4"
+    ]
     if len(downloaded) != 1:
         raise FileNotFoundError(
             f"Expected one downloaded MP4 for {video_id}; found {len(downloaded)}."
