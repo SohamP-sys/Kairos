@@ -64,7 +64,7 @@ during model import are non-fatal; extraction progress is printed separately.
 
 ## Disk-conscious data utilities
 
-- `tools/stream_epic.py` is an optional script to sequentially download, resize, and delete EPIC originals. It requires the official `epic_downloader.py`, manifest, and permission to download data. Review its settings and disk threshold before running.
+- `tools/stream_manifest.py` downloads one manifest source at a time, runs inference, validates the staged JSON, and then removes only that runner-owned source directory. A failed stage retains its source for retry. `tools/stream_epic.py` remains as a compatibility wrapper.
 - `tools/download_fpv.py` uses `yt-dlp`; dataset availability, access rules, and licensing apply.
 
 These scripts do not run during inference.
@@ -77,6 +77,31 @@ python -m unittest discover -s tests -v
 ```
 
 Tests use a synthetic video and a corrupt file to exercise fallback behavior. The official organizer validator should still be run on every output before submission.
+
+## Track 4 manifest run
+
+The checked-in [`manifest.csv`](manifest.csv) is the supplied 187-video list
+(138 EPIC-KITCHENS-100 and 49 FPVSum entries). Put each source MP4 in the video
+directory using its manifest `video_id` as the filename, then run:
+
+```bash
+python batch.py path/to/videos outputs --team-id YOUR_TEAM_ID
+python validate.py --dir outputs/
+```
+
+Batch inference uses the manifest's dataset to enforce `cooking` labels for
+EPIC-KITCHENS and non-`cooking` labels for FPVSum. It writes manifest durations
+and checks them against the probed video duration (within 0.5 seconds). Missing
+or invalid videos make the batch command fail; `--fill-missing` is only for
+producing clearly marked fallback files, not submission predictions.
+
+On Windows, run `python code/run_video.py input.mp4 output.json` from an
+activated `.venv`; `run.sh` is the required Bash entry point for the submission
+environment.
+
+The supplied FPV example `details/skiing_03.json` says `skiing`, but the
+official vocabulary uses `ski`. The output assembler canonicalizes that alias;
+the validator intentionally accepts only the official `ski` label.
 
 ## Reproducibility and limitations
 
@@ -92,7 +117,7 @@ Tests use a synthetic video and a corrupt file to exercise fallback behavior. Th
 
 The FPV branch is now wired in the code path and includes: optional local VideoMAE Kinetics classifier (`code/videomae_fpv.py`), SigLIP frame semantics, multi-signal importance curve, feature-based KTS-style temporal segmentation (`code/kts.py`), and duration-budget knapsack highlight selection (`code/fpv_pipeline.py`). Model dependencies are listed separately in `requirements-models.txt`; install CUDA-compatible PyTorch first. Place a locally downloaded VideoMAE checkpoint under `weights/videomae_kinetics/` (Hugging Face model folder including config and weights).
 
-**Important status:** this FPV integration has been code-wired and unit-tested only in the no-checkpoint fallback. VideoMAE inference with real weights is not verified. Kinetics-to-FPVSum mapping is conservative and may need dataset evaluation. SigLIP also requires its local checkpoint.
+**Important status:** this FPV integration has been code-wired and unit-tested only in the no-checkpoint fallback. The Windows setup script performs local checkpoint load checks before streaming; the Kinetics-to-FPVSum mapping is conservative and still needs dataset evaluation.
 
 **AVION is now integrated for cache extraction.** The ViT-B checkpoint loads, produces 3806 joint-action logits, marginalizes them to the official 97 verb and 300 noun classes, and passes a synthetic forward test. Real EPIC validation-mAP and coverage benchmarks, calibration, and throughput still remain to be measured.
 
@@ -125,13 +150,46 @@ The download helper stores model snapshots under `weights/siglip/` and `weights/
 consumed by the EPIC branch. The adapter is synthetic-forward tested; real benchmark
 accuracy and throughput are still not reported.
 
+### Windows NVIDIA setup and low-disk full run
+
+The Windows setup script installs CUDA-enabled PyTorch, the model dependencies,
+yt-dlp, the AVION source/checkpoint, and local SigLIP/VideoMAE checkpoints. Model
+weights and temporary downloads go to a separate work drive:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\setup_windows.ps1 `
+  -WorkDir D:\Kairos-Track4-work -TeamId Kairos
+```
+
+The setup uses the CUDA 12.6 PyTorch wheel, compatible with the tested NVIDIA
+driver, and checks that CUDA is available. It keeps Python packages in `.venv`
+and places model weights under the selected work directory. It also prepares
+AVION's optional FlashAttention imports for its non-FlashAttention inference
+path, then runs smoke inferences with all three local models.
+
+To process the complete manifest without retaining the 184 GB EPIC video set:
+
+```powershell
+python tools\stream_manifest.py manifest.csv `
+  --work-dir D:\Kairos-Track4-work --team-id Kairos
+```
+
+The runner downloads one source, then can prefetch at most one next source while
+inference runs if at least 8 GB remains above the configured free-space reserve.
+It validates and publishes each JSON before removing only that runner-owned
+source directory. Valid JSONs remain in `outputs/`; a failed download,
+inference, or validation stops the run and retains the affected source for
+troubleshooting. This overlap can use space for two raw videos at once, but
+does not download the full dataset at once. The reserve limits peak storage,
+not total network transfer; the full run still downloads the listed videos.
+EPIC and FPVSum download/access rules apply.
+
 ## Model availability check
 
-After setup and download, run:
+After setup, the Windows setup script loads all three local models and verifies an AVION forward pass. To inspect package/GPU availability separately, run:
 
 ```bash
 python tools/environment_check.py
-PYTHONPATH=code python -c "from router_siglip import SigLIPRouter; from videomae_fpv import VideoMAEFpvClassifier; print('SigLIP:', SigLIPRouter().enabled); print('VideoMAE:', VideoMAEFpvClassifier().enabled)"
 ```
 
 This reports whether local models load; it is not an accuracy benchmark.

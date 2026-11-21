@@ -1,9 +1,9 @@
 {
   "labels": [
-    "cooking",
     "bike",
     "bikepolo",
     "boxing",
+    "cooking",
     "horse",
     "jumping",
     "longboarding",
@@ -12,8 +12,8 @@
     "plane",
     "rockclimbing",
     "scuba",
-    "ski",
     "skate",
+    "ski",
     "surfing",
     "other"
   ],

@@ -3,6 +3,8 @@ from typing import Any, Dict, List, Optional
 
 from schema import DEFAULT_LABELS, load_supported_classes, validate_output
 
+LABEL_ALIASES = {"skiing": "ski"}
+
 
 def _clamp(val: float, lo: float, hi: float) -> float:
     return max(lo, min(hi, val))
@@ -146,6 +148,7 @@ def assemble_prediction(
     fallback_label = "other" if "other" in allowed_labels else sorted(allowed_labels)[0]
 
     lname = str(label_name).strip().lower()
+    lname = LABEL_ALIASES.get(lname, lname)
     if lname not in allowed_labels:
         lname = fallback_label
     try:

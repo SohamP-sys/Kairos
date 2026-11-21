@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import os
 from pathlib import Path
 
 import numpy as np
@@ -249,8 +250,10 @@ class VideoMAEFpvClassifier:
     def __init__(self, model_path=None, device=None):
         self.model_path = Path(
             model_path
-            or Path(__file__).resolve().parents[1]
-            / "weights"
+            or Path(os.environ.get(
+                "KAIROS_WEIGHTS_DIR",
+                Path(__file__).resolve().parents[1] / "weights",
+            )).expanduser()
             / "videomae_kinetics"
         )
 

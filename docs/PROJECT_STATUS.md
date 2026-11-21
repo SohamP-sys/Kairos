@@ -1,6 +1,8 @@
 # Project Status — 18 Nov 2026
 
 ## Integrated in the code path
+- The official 187-video Track 4 manifest is bundled at the repository root; batch inference enforces dataset-specific labels, manifest durations, and required output coverage.
+- `validate.py --dir outputs/` validates manifest coverage, output schema, vocabulary, highlight constraints, and consistent team IDs.
 - Video decoding and duration probe via ffmpeg/ffprobe.
 - Heuristic motion baseline and fallback ladder.
 - Optional SigLIP prompt routing (requires local checkpoint/open_clip).
@@ -14,7 +16,7 @@
 - VideoMAE inference on real weights and its Kinetics-to-FPVSum mapping.
 - SigLIP inference on real local weights.
 - AVION extraction has a working ViT-B loader and synthetic forward pass; real EPIC benchmark coverage and throughput are not yet measured.
-- Official supported_classes.json and validate.py have not been included in this build.
+- The supplied student package did not include its claimed organizer `validate.py`; the repository provides a compatible local validator, which is not represented as the organizer's official validator.
 - No real dataset benchmark, checkpoint sanity run, calibration, or hardware throughput measurement.
 
 ## Build note

@@ -5,11 +5,13 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import os
 import subprocess
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+WEIGHTS = Path(os.environ.get("KAIROS_WEIGHTS_DIR", ROOT / "weights")).expanduser()
 CHECKPOINT_URL = "https://drive.google.com/uc?id=1YgxYjmpSxI26wdnKeeT0YakEIAFP5HjF"
 EXPECTED_MD5_PREFIX = "6c3c5e"
 
@@ -27,12 +29,11 @@ def main() -> int:
     parser.add_argument(
         "--output",
         type=Path,
-        default=ROOT
-        / "weights"
-        / "avion"
-        / "avion_finetune_cls_lavila_vitb_best.pt",
+        default=WEIGHTS / "avion" / "avion_finetune_cls_lavila_vitb_best.pt",
     )
     args = parser.parse_args()
+    if not args.output.is_absolute():
+        args.output = ROOT / args.output
     args.output.parent.mkdir(parents=True, exist_ok=True)
 
     if args.output.is_file() and md5_prefix(args.output) == EXPECTED_MD5_PREFIX:

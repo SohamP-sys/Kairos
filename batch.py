@@ -1,49 +1,189 @@
 #!/usr/bin/env python3
-"""Batch inference for videos, optionally creating manifest-duration fallbacks."""
-import argparse,csv,json,os,subprocess,sys
+"""Generate and validate predictions for every video in the Track 4 manifest."""
+
+import argparse
+import csv
+import json
+import math
+import os
+import subprocess
+import sys
 from pathlib import Path
-ROOT=Path(__file__).resolve().parent
-sys.path.insert(0,str(ROOT/"code"))
+
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT / "code"))
+
 from assemble import assemble_prediction
 from baseline import evenly_spaced_windows
 from schema import validate_output
 
-def main():
-    ap=argparse.ArgumentParser(description="Batch video predictions from folder/manifest")
-    ap.add_argument("video_dir",type=Path); ap.add_argument("output_dir",type=Path)
-    ap.add_argument("--manifest",type=Path); ap.add_argument("--fill-missing",action="store_true")
-    ap.add_argument("--team-id",default=os.environ.get("TEAM_ID_STR","TEAM_ID")); ap.add_argument("--classes",type=Path)
-    args=ap.parse_args(); rows=[]
-    if args.manifest:
-        with args.manifest.open(newline="",encoding="utf-8-sig") as f: rows=list(csv.DictReader(f))
-    if rows:
-        entries=[]
-        for row in rows:
-            vid=(row.get("video_id") or row.get("id") or "").strip()
-            try: dur=float(row.get("duration_sec") or row.get("duration") or 0)
-            except (TypeError,ValueError):dur=0.0
-            dataset=(row.get("dataset") or "").lower()
-            entries.append((vid,dur,dataset))
-    else:
-        entries=[(p.stem,0.0,"") for p in sorted(args.video_dir.glob("*.mp4"))]
-    args.output_dir.mkdir(parents=True,exist_ok=True); failed=[]; processed=0
-    for vid,dur,dataset in entries:
-        if not vid:continue
-        src=args.video_dir/(vid+".mp4"); out=args.output_dir/(vid+".json")
-        if src.exists():
-            result=subprocess.run([str(ROOT/"run.sh"),str(src),str(out)],check=False)
-            if result.returncode:failed.append(vid)
-        elif args.fill_missing and dur>0:
-            label="cooking" if dataset in {"epic_kitchens_100","epic","epic-kitchens-100"} else "other"
-            pred=assemble_prediction(args.team_id,vid,dur,label,0.3,[],evenly_spaced_windows(dur),classes_path=args.classes)
-            ok,errs,_=validate_output(pred,expected_video_id=vid,manifest_duration=dur,classes_path=args.classes)
-            if not ok:failed.append(vid); print(f"invalid fallback {vid}: {errs}");continue
-            out.write_text(json.dumps(pred,indent=2)+"\n",encoding="utf-8")
-            print(f"FALLBACK {vid}: no video file; emitted metadata-duration placeholder (not a prediction)")
+EPIC_DATASETS = {"epic", "epic-kitchens-100", "epic_kitchens_100"}
+
+
+def _read_manifest(path: Path):
+    with path.open(newline="", encoding="utf-8-sig") as file:
+        reader = csv.DictReader(file)
+        required = {"video_id", "duration_sec", "dataset"}
+        if not required.issubset(reader.fieldnames or []):
+            raise ValueError(f"{path} must have columns: {', '.join(sorted(required))}")
+
+        entries = []
+        seen = set()
+        for line, row in enumerate(reader, start=2):
+            video_id = (row.get("video_id") or "").strip()
+            if not video_id or video_id in seen:
+                raise ValueError(f"{path}:{line} has an empty or duplicate video_id.")
+            seen.add(video_id)
+            try:
+                duration = float(row["duration_sec"])
+            except (TypeError, ValueError):
+                raise ValueError(f"{path}:{line} has an invalid duration_sec.")
+            if not math.isfinite(duration) or duration <= 0:
+                raise ValueError(f"{path}:{line} duration_sec must be positive.")
+            dataset = (row.get("dataset") or "").strip().lower()
+            if dataset not in EPIC_DATASETS | {"fpvsum"}:
+                raise ValueError(f"{path}:{line} has an unsupported dataset: {dataset!r}.")
+            entries.append((video_id, duration, dataset))
+    if not entries:
+        raise ValueError(f"{path} contains no video entries.")
+    return entries
+
+
+def _normalize_output(
+    result: dict,
+    team_id: str,
+    video_id: str,
+    duration: float,
+    dataset: str,
+    classes_path: Path | None,
+) -> dict:
+    label = result.get("label") if isinstance(result, dict) else {}
+    label_name = label.get("name", "other") if isinstance(label, dict) else "other"
+    label_score = label.get("score", 0.5) if isinstance(label, dict) else 0.5
+
+    if dataset in EPIC_DATASETS:
+        label_name = "cooking"
+        label_score = 1.0
+    elif str(label_name).strip().lower() == "cooking":
+        label_name = "other"
+        label_score = 0.5
+
+    return assemble_prediction(
+        team_id,
+        video_id,
+        duration,
+        label_name,
+        label_score,
+        result.get("actions", []) if isinstance(result, dict) else [],
+        result.get("highlights", []) if isinstance(result, dict) else [],
+        classes_path=classes_path,
+    )
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Batch Track 4 predictions from the manifest.")
+    parser.add_argument("video_dir", type=Path)
+    parser.add_argument("output_dir", type=Path)
+    parser.add_argument("--manifest", type=Path, default=ROOT / "manifest.csv")
+    parser.add_argument(
+        "--fill-missing",
+        action="store_true",
+        help="Write explicitly marked fallback predictions for unavailable videos.",
+    )
+    parser.add_argument("--team-id", default=os.environ.get("TEAM_ID_STR", "TEAM_ID"))
+    parser.add_argument("--classes", type=Path)
+    args = parser.parse_args()
+
+    if not args.manifest.is_file():
+        parser.error(f"Manifest not found: {args.manifest}")
+    try:
+        entries = _read_manifest(args.manifest)
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    videos_by_id = {}
+    if args.video_dir.is_dir():
+        for path in args.video_dir.rglob("*.mp4"):
+            videos_by_id.setdefault(path.stem, []).append(path)
+
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    failed = []
+    written = 0
+    runner = ROOT / "code" / "run_video.py"
+
+    for video_id, duration, dataset in entries:
+        sources = videos_by_id.get(video_id, [])
+        output_path = args.output_dir / f"{video_id}.json"
+
+        if len(sources) > 1:
+            failed.append(video_id)
+            print(f"FAIL {video_id}: multiple matching MP4 files found.")
+            continue
+
+        if not sources:
+            if not args.fill_missing:
+                failed.append(video_id)
+                print(f"FAIL {video_id}: source video is missing.")
+                continue
+            result = {
+                "actions": [],
+                "highlights": evenly_spaced_windows(duration),
+            }
+            prediction = _normalize_output(
+                result, args.team_id, video_id, duration, dataset, args.classes
+            )
+            print(f"FALLBACK {video_id}: missing source; this is not a video prediction.")
         else:
-            print(f"skip missing video: {src}");continue
-        if out.exists():processed+=1
-    print(f"Batch complete. manifest/inputs={len(entries)} written={processed} failures={len(failed)}")
-    if failed:print("Failures:",", ".join(failed))
+            command = [
+                sys.executable,
+                str(runner),
+                str(sources[0]),
+                str(output_path),
+                "--dataset",
+                dataset,
+                "--manifest-duration",
+                str(duration),
+            ]
+            completed = subprocess.run(command, check=False)
+            if completed.returncode != 0:
+                failed.append(video_id)
+                print(f"FAIL {video_id}: inference exited with status {completed.returncode}.")
+                continue
+            try:
+                result = json.loads(output_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError) as exc:
+                failed.append(video_id)
+                print(f"FAIL {video_id}: could not read prediction: {exc}")
+                continue
+            prediction = _normalize_output(
+                result, args.team_id, video_id, duration, dataset, args.classes
+            )
+
+        valid, errors, warnings = validate_output(
+            prediction,
+            expected_video_id=video_id,
+            manifest_duration=duration,
+            classes_path=args.classes,
+            dataset=dataset,
+        )
+        if not valid:
+            failed.append(video_id)
+            print(f"FAIL {video_id}: {' | '.join(errors)}")
+            continue
+
+        output_path.write_text(json.dumps(prediction, indent=2) + "\n", encoding="utf-8")
+        written += 1
+        if warnings:
+            print(f"WARN {video_id}: {' | '.join(warnings)}")
+
+    print(
+        f"Batch complete: manifest={len(entries)} written={written} "
+        f"failures={len(failed)}"
+    )
+    if failed:
+        print("Failures:", ", ".join(failed))
     return 1 if failed else 0
-if __name__=="__main__":raise SystemExit(main())
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import json
+import math
+import os
 import sys
 from pathlib import Path
 
@@ -20,7 +22,7 @@ from router_siglip import SigLIPRouter
 from schema import validate_output
 
 ROOT = Path(__file__).resolve().parents[1]
-WEIGHTS = ROOT / "weights"
+WEIGHTS = Path(os.environ.get("KAIROS_WEIGHTS_DIR", ROOT / "weights")).expanduser()
 
 
 def _load_epic_cache(video_id: str):
@@ -40,6 +42,7 @@ def _create_epic_cache(video_path: Path, video_id: str) -> None:
     extract_avion_cache(
         video_path,
         cache_path,
+        checkpoint_path=WEIGHTS / "avion" / "avion_finetune_cls_lavila_vitb_best.pt",
         batch_size=1,
     )
 
@@ -48,10 +51,27 @@ def process_video(
     video_path: Path,
     team_id: str = "TEAM_ID",
     output_path: Path | None = None,
+    dataset: str | None = None,
+    manifest_duration: float | None = None,
 ) -> dict:
     video_path = Path(video_path)
     video_id = video_path.stem
-    duration = probe_duration(video_path)
+    actual_duration = probe_duration(video_path)
+    if manifest_duration is not None:
+        manifest_duration = float(manifest_duration)
+        if (
+            not math.isfinite(manifest_duration)
+            or manifest_duration <= 0
+            or abs(actual_duration - manifest_duration) > 0.5
+        ):
+            raise ValueError(
+                f"Video duration {actual_duration:.2f}s does not match manifest "
+                f"duration {manifest_duration:.2f}s within 0.5s."
+            )
+    duration = manifest_duration if manifest_duration is not None else actual_duration
+    dataset_name = (dataset or "").strip().lower()
+    is_epic = dataset_name in {"epic", "epic-kitchens-100", "epic_kitchens_100"}
+    is_fpvsum = dataset_name == "fpvsum"
 
     raw_motion = []
     try:
@@ -65,30 +85,40 @@ def process_video(
         else evenly_spaced_windows(duration)
     )
 
-    router = SigLIPRouter(WEIGHTS)
-    label, label_score = "other", 0.25
-    class_probs = {"other": 0.25}
+    router = None
+    label, label_score = ("cooking", 1.0) if is_epic else ("other", 0.25)
+    class_probs = {}
     embeddings = np.zeros((0, 64), dtype=np.float32)
     frames = np.zeros((0, 224, 224, 3), dtype=np.uint8)
     flux = np.zeros(max(1, int(np.ceil(duration))), dtype=np.float32)
     highband = flux.copy()
 
-    try:
-        frames = decode_video_frames(
-            video_path,
-            fps=1.0,
-            width=224,
-            height=224,
-            max_seconds=max(2400.0, duration),
-        )
-        flux, highband = extract_audio_1hz_features(
-            video_path, int(np.ceil(duration))
-        )
-        label, label_score, class_probs, embeddings = router.route_and_label(
-            frames, highband
-        )
-    except Exception as exc:
-        sys.stderr.write(f"[fallback] router/audio: {exc}\n")
+    if not is_epic:
+        router = SigLIPRouter(WEIGHTS)
+        try:
+            frames = decode_video_frames(
+                video_path,
+                fps=1.0,
+                width=224,
+                height=224,
+                max_seconds=max(2400.0, duration),
+            )
+            flux, highband = extract_audio_1hz_features(
+                video_path, int(np.ceil(duration))
+            )
+            label, label_score, class_probs, embeddings = router.route_and_label(
+                frames, highband
+            )
+        except Exception as exc:
+            sys.stderr.write(f"[fallback] router/audio: {exc}\n")
+
+    if is_fpvsum and label == "cooking":
+        from router_siglip import FPV_CLASSES
+
+        fpv_probs = {name: float(class_probs.get(name, 0.0)) for name in FPV_CLASSES}
+        label = max(fpv_probs, key=fpv_probs.get) if max(fpv_probs.values(), default=0.0) > 0 else "other"
+        label_score = fpv_probs.get(label, 0.25)
+        class_probs = fpv_probs
 
     raw_actions = []
     if label == "cooking":
@@ -173,15 +203,21 @@ def process_video(
         raw_highlights,
         max_ratio=0.145,
     )
-    ok, errors, _ = validate_output(result, expected_video_id=video_id)
+    ok, errors, _ = validate_output(
+        result,
+        expected_video_id=video_id,
+        manifest_duration=manifest_duration,
+        dataset=dataset,
+    )
     if not ok:
         sys.stderr.write("[validation fallback] " + "; ".join(errors) + "\n")
+        fallback_label = "cooking" if is_epic else "other"
         result = assemble_prediction(
             team_id,
             video_id,
             duration,
-            "other",
-            0.2,
+            fallback_label,
+            1.0 if is_epic else 0.2,
             [],
             evenly_spaced_windows(duration),
             max_ratio=0.145,
