@@ -228,6 +228,81 @@ class ProjectTests(unittest.TestCase):
    self.assertEqual(result,1)
    self.assertTrue(source.is_file())
    self.assertFalse((outputs/"clip.json").exists())
+ def test_avion_preparation_makes_flash_attention_optional(self):
+  from tools.prepare_avion import prepare_avion_source
+  with tempfile.TemporaryDirectory() as d:
+   source=Path(d)/"transformer.py"
+   source.write_text(
+    "from flash_attn.modules.mha import MHA as FlashMHA\n"
+    "from flash_attn.modules.mlp import Mlp as FlashMlp\n"
+    "            self.attn = FlashMHA(d_model, n_head, cross_attn=False, bias=True, dropout=attn_drop, use_flash_attn=True)\n"
+    "            self.mlp = FlashMlp(d_model, hidden_features=mlp_width, activation=act_layer())\n",
+    encoding="utf-8",
+   )
+   self.assertTrue(prepare_avion_source(source))
+   prepared=source.read_text(encoding="utf-8")
+   self.assertIn("if FlashMHA is None:",prepared)
+   self.assertIn("if FlashMlp is None:",prepared)
+   self.assertFalse(prepare_avion_source(source))
+ def test_avion_extraction_progress_handles_multiple_batches(self):
+  import tools.extract_avion_epic as extractor
+  class FakeClassifier:
+   enabled=True
+   device="cpu"
+   def __init__(self,*args): pass
+   def load_action_mapping(self,path): return True
+   def predict_joint_logits(self,clips,batch_size=1):
+    return np.zeros((len(clips),3806),dtype=np.float32)
+   def marginalize(self,logits):
+    return np.full((len(logits),97),1/97,dtype=np.float32),np.full((len(logits),300),1/300,dtype=np.float32)
+  with tempfile.TemporaryDirectory() as d:
+   d=Path(d); video=d/"source.mp4"; video.touch(); output=d/"cache.npz"
+   frames=np.zeros((40,224,224,3),dtype=np.uint8)
+   with patch.object(extractor,"probe_duration",return_value=5.0), \
+        patch.object(extractor,"decode_frames",return_value=frames), \
+        patch.object(extractor,"center_crop_224",return_value=frames), \
+        patch.object(extractor,"AVIONEpicClassifier",FakeClassifier):
+    extractor.extract_avion_cache(video,output,checkpoint_path=d/"checkpoint.pt",batch_size=1)
+   self.assertTrue(output.is_file())
+ def test_avion_extraction_retries_with_smaller_batch_after_oom(self):
+  import tools.extract_avion_epic as extractor
+  batch_sizes=[]
+  class FakeClassifier:
+   enabled=True
+   device="cpu"
+   def __init__(self,*args): pass
+   def load_action_mapping(self,path): return True
+   def predict_joint_logits(self,clips,batch_size=1):
+    batch_sizes.append(batch_size)
+    if batch_size > 4:
+     raise RuntimeError("CUDA out of memory")
+    return np.zeros((len(clips),3806),dtype=np.float32)
+   def marginalize(self,logits):
+    return np.full((len(logits),97),1/97,dtype=np.float32),np.full((len(logits),300),1/300,dtype=np.float32)
+  with tempfile.TemporaryDirectory() as d:
+   d=Path(d); video=d/"source.mp4"; video.touch(); output=d/"cache.npz"
+   frames=np.zeros((40,224,224,3),dtype=np.uint8)
+   with patch.object(extractor,"probe_duration",return_value=5.0), \
+        patch.object(extractor,"decode_frames",return_value=frames), \
+        patch.object(extractor,"center_crop_224",return_value=frames), \
+        patch.object(extractor,"AVIONEpicClassifier",FakeClassifier):
+    extractor.extract_avion_cache(video,output,checkpoint_path=d/"checkpoint.pt",batch_size=8)
+   self.assertTrue(output.is_file())
+   self.assertIn(8,batch_sizes)
+   self.assertIn(4,batch_sizes)
+ def test_epic_cache_uses_configured_avion_batch_size(self):
+  import pipeline
+  from tools import extract_avion_epic
+  video=Path("source.mp4")
+  with patch.dict("os.environ",{"KAIROS_AVION_BATCH_SIZE":"6"}), \
+       patch.object(extract_avion_epic,"extract_avion_cache") as extract:
+   pipeline._create_epic_cache(video,"clip")
+  extract.assert_called_once_with(
+   video,
+   pipeline.WEIGHTS/"epic_cache"/"clip.npz",
+   checkpoint_path=pipeline.WEIGHTS/"avion"/"avion_finetune_cls_lavila_vitb_best.pt",
+   batch_size=6,
+  )
  def test_synthetic_video_pipeline(self):
   with tempfile.TemporaryDirectory() as d:
    v=Path(d)/"synthetic.mp4"; out=Path(d)/"out.json"

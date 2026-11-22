@@ -1,0 +1,1297 @@
+{
+  "team_id": "Kairos",
+  "video_id": "P03_25",
+  "duration_sec": 37.19,
+  "label": {
+    "name": "cooking",
+    "score": 1.0
+  },
+  "actions": [
+    {
+      "segment": [
+        24.35,
+        27.65
+      ],
+      "verb": "turn-on",
+      "noun": "tap",
+      "score": 0.99
+    },
+    {
+      "segment": [
+        30.75,
+        33.25
+      ],
+      "verb": "turn-off",
+      "noun": "tap",
+      "score": 0.956
+    },
+    {
+      "segment": [
+        33.95,
+        37.19
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.9542
+    },
+    {
+      "segment": [
+        10.75,
+        13.25
+      ],
+      "verb": "open",
+      "noun": "fridge",
+      "score": 0.7753
+    },
+    {
+      "segment": [
+        8.75,
+        11.25
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.649
+    },
+    {
+      "segment": [
+        24.75,
+        27.25
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.643
+    },
+    {
+      "segment": [
+        2.75,
+        5.25
+      ],
+      "verb": "turn-on",
+      "noun": "tap",
+      "score": 0.5225
+    },
+    {
+      "segment": [
+        25.75,
+        28.25
+      ],
+      "verb": "turn-on",
+      "noun": "tap",
+      "score": 0.4977
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.4475
+    },
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.4241
+    },
+    {
+      "segment": [
+        12.75,
+        15.25
+      ],
+      "verb": "close",
+      "noun": "fridge",
+      "score": 0.4101
+    },
+    {
+      "segment": [
+        31.75,
+        34.25
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.3863
+    },
+    {
+      "segment": [
+        5.75,
+        8.25
+      ],
+      "verb": "fill",
+      "noun": "glass",
+      "score": 0.3721
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.3686
+    },
+    {
+      "segment": [
+        16.75,
+        19.25
+      ],
+      "verb": "close",
+      "noun": "squash",
+      "score": 0.3666
+    },
+    {
+      "segment": [
+        6.35,
+        9.65
+      ],
+      "verb": "turn-off",
+      "noun": "tap",
+      "score": 0.3622
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "insert",
+      "noun": "bottle",
+      "score": 0.3446
+    },
+    {
+      "segment": [
+        29.35,
+        32.65
+      ],
+      "verb": "turn-off",
+      "noun": "tap",
+      "score": 0.3312
+    },
+    {
+      "segment": [
+        35.35,
+        37.19
+      ],
+      "verb": "close",
+      "noun": "cupboard",
+      "score": 0.3205
+    },
+    {
+      "segment": [
+        28.75,
+        31.25
+      ],
+      "verb": "fill",
+      "noun": "glass",
+      "score": 0.3194
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.2794
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.279
+    },
+    {
+      "segment": [
+        3.35,
+        6.65
+      ],
+      "verb": "fill",
+      "noun": "glass",
+      "score": 0.2694
+    },
+    {
+      "segment": [
+        17.75,
+        20.25
+      ],
+      "verb": "put",
+      "noun": "bottle",
+      "score": 0.2684
+    },
+    {
+      "segment": [
+        9.35,
+        12.65
+      ],
+      "verb": "open",
+      "noun": "fridge",
+      "score": 0.2559
+    },
+    {
+      "segment": [
+        13.75,
+        16.25
+      ],
+      "verb": "open",
+      "noun": "squash",
+      "score": 0.2469
+    },
+    {
+      "segment": [
+        22.75,
+        25.25
+      ],
+      "verb": "put",
+      "noun": "plate",
+      "score": 0.2463
+    },
+    {
+      "segment": [
+        5.75,
+        8.25
+      ],
+      "verb": "fill",
+      "noun": "water",
+      "score": 0.2341
+    },
+    {
+      "segment": [
+        14.75,
+        17.25
+      ],
+      "verb": "pour",
+      "noun": "squash",
+      "score": 0.2215
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "close",
+      "noun": "fridge",
+      "score": 0.2083
+    },
+    {
+      "segment": [
+        35.35,
+        37.19
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.2039
+    },
+    {
+      "segment": [
+        20.35,
+        23.65
+      ],
+      "verb": "take",
+      "noun": "bowl",
+      "score": 0.1976
+    },
+    {
+      "segment": [
+        7.75,
+        10.25
+      ],
+      "verb": "pour",
+      "noun": "water",
+      "score": 0.1932
+    },
+    {
+      "segment": [
+        34.75,
+        37.19
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.1905
+    },
+    {
+      "segment": [
+        8.35,
+        11.65
+      ],
+      "verb": "open",
+      "noun": "cupboard",
+      "score": 0.1898
+    },
+    {
+      "segment": [
+        20.35,
+        23.65
+      ],
+      "verb": "take",
+      "noun": "plate",
+      "score": 0.1877
+    },
+    {
+      "segment": [
+        28.75,
+        31.25
+      ],
+      "verb": "fill",
+      "noun": "water",
+      "score": 0.1837
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.1834
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "put",
+      "noun": "bottle",
+      "score": 0.1644
+    },
+    {
+      "segment": [
+        2.35,
+        5.65
+      ],
+      "verb": "wash",
+      "noun": "glass",
+      "score": 0.1622
+    },
+    {
+      "segment": [
+        1.35,
+        4.65
+      ],
+      "verb": "turn-on",
+      "noun": "tap",
+      "score": 0.1613
+    },
+    {
+      "segment": [
+        22.75,
+        25.25
+      ],
+      "verb": "put",
+      "noun": "bowl",
+      "score": 0.1606
+    },
+    {
+      "segment": [
+        15.35,
+        18.65
+      ],
+      "verb": "close",
+      "noun": "squash",
+      "score": 0.1556
+    },
+    {
+      "segment": [
+        16.75,
+        19.25
+      ],
+      "verb": "close",
+      "noun": "bottle",
+      "score": 0.1534
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "insert",
+      "noun": "plate",
+      "score": 0.1448
+    },
+    {
+      "segment": [
+        16.35,
+        19.65
+      ],
+      "verb": "put",
+      "noun": "squash",
+      "score": 0.1409
+    },
+    {
+      "segment": [
+        13.75,
+        16.25
+      ],
+      "verb": "close",
+      "noun": "squash",
+      "score": 0.1382
+    },
+    {
+      "segment": [
+        4.75,
+        7.25
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.1371
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "move",
+      "noun": "glass",
+      "score": 0.1355
+    },
+    {
+      "segment": [
+        32.35,
+        35.65
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.1325
+    },
+    {
+      "segment": [
+        22.75,
+        25.25
+      ],
+      "verb": "take",
+      "noun": "plate",
+      "score": 0.1305
+    },
+    {
+      "segment": [
+        17.75,
+        20.25
+      ],
+      "verb": "open",
+      "noun": "bottle",
+      "score": 0.1279
+    },
+    {
+      "segment": [
+        31.35,
+        34.65
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.1273
+    },
+    {
+      "segment": [
+        15.35,
+        18.65
+      ],
+      "verb": "close",
+      "noun": "fridge",
+      "score": 0.1237
+    },
+    {
+      "segment": [
+        9.35,
+        12.65
+      ],
+      "verb": "open",
+      "noun": "bottle",
+      "score": 0.1229
+    },
+    {
+      "segment": [
+        27.35,
+        30.65
+      ],
+      "verb": "fill",
+      "noun": "glass",
+      "score": 0.1227
+    },
+    {
+      "segment": [
+        11.35,
+        14.65
+      ],
+      "verb": "take",
+      "noun": "squash",
+      "score": 0.1205
+    },
+    {
+      "segment": [
+        23.75,
+        26.25
+      ],
+      "verb": "wash",
+      "noun": "glass",
+      "score": 0.112
+    },
+    {
+      "segment": [
+        32.35,
+        35.65
+      ],
+      "verb": "wash",
+      "noun": "glass",
+      "score": 0.1092
+    },
+    {
+      "segment": [
+        8.75,
+        11.25
+      ],
+      "verb": "put",
+      "noun": "bottle",
+      "score": 0.106
+    },
+    {
+      "segment": [
+        14.35,
+        17.65
+      ],
+      "verb": "put",
+      "noun": "squash",
+      "score": 0.1015
+    },
+    {
+      "segment": [
+        28.75,
+        31.25
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.101
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "take",
+      "noun": "bottle",
+      "score": 0.1007
+    },
+    {
+      "segment": [
+        16.35,
+        19.65
+      ],
+      "verb": "insert",
+      "noun": "squash",
+      "score": 0.0995
+    },
+    {
+      "segment": [
+        11.75,
+        14.25
+      ],
+      "verb": "close",
+      "noun": "bottle",
+      "score": 0.0978
+    },
+    {
+      "segment": [
+        1.35,
+        4.65
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.0972
+    },
+    {
+      "segment": [
+        9.75,
+        12.25
+      ],
+      "verb": "take",
+      "noun": "bottle",
+      "score": 0.0971
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0955
+    },
+    {
+      "segment": [
+        27.35,
+        30.65
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.0947
+    },
+    {
+      "segment": [
+        22.75,
+        25.25
+      ],
+      "verb": "put",
+      "noun": "box",
+      "score": 0.0946
+    },
+    {
+      "segment": [
+        23.35,
+        26.65
+      ],
+      "verb": "turn-on",
+      "noun": "glass",
+      "score": 0.094
+    },
+    {
+      "segment": [
+        2.75,
+        5.25
+      ],
+      "verb": "turn-on",
+      "noun": "glass",
+      "score": 0.0929
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "fill",
+      "noun": "tap",
+      "score": 0.0925
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "take",
+      "noun": "bottle",
+      "score": 0.0922
+    },
+    {
+      "segment": [
+        13.35,
+        16.65
+      ],
+      "verb": "take",
+      "noun": "squash",
+      "score": 0.0918
+    },
+    {
+      "segment": [
+        4.35,
+        7.65
+      ],
+      "verb": "fill",
+      "noun": "water",
+      "score": 0.0906
+    },
+    {
+      "segment": [
+        19.75,
+        22.25
+      ],
+      "verb": "take",
+      "noun": "box",
+      "score": 0.0898
+    },
+    {
+      "segment": [
+        13.35,
+        16.65
+      ],
+      "verb": "pour",
+      "noun": "squash",
+      "score": 0.0893
+    },
+    {
+      "segment": [
+        12.35,
+        15.65
+      ],
+      "verb": "open",
+      "noun": "squash",
+      "score": 0.0884
+    },
+    {
+      "segment": [
+        29.75,
+        32.25
+      ],
+      "verb": "fill",
+      "noun": "tap",
+      "score": 0.0874
+    },
+    {
+      "segment": [
+        26.75,
+        29.25
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.0872
+    },
+    {
+      "segment": [
+        3.35,
+        6.65
+      ],
+      "verb": "fill",
+      "noun": "tap",
+      "score": 0.0852
+    },
+    {
+      "segment": [
+        31.75,
+        34.25
+      ],
+      "verb": "insert",
+      "noun": "lid",
+      "score": 0.0844
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "insert",
+      "noun": "fridge",
+      "score": 0.0841
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "insert",
+      "noun": "squash",
+      "score": 0.0837
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "put",
+      "noun": "bottle",
+      "score": 0.083
+    },
+    {
+      "segment": [
+        23.35,
+        26.65
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.0818
+    },
+    {
+      "segment": [
+        32.35,
+        35.65
+      ],
+      "verb": "take",
+      "noun": "water",
+      "score": 0.0802
+    },
+    {
+      "segment": [
+        2.75,
+        5.25
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.0799
+    },
+    {
+      "segment": [
+        12.75,
+        15.25
+      ],
+      "verb": "take",
+      "noun": "fridge",
+      "score": 0.0779
+    },
+    {
+      "segment": [
+        28.75,
+        31.25
+      ],
+      "verb": "insert",
+      "noun": "glass",
+      "score": 0.0762
+    },
+    {
+      "segment": [
+        35.35,
+        37.19
+      ],
+      "verb": "close",
+      "noun": "glass",
+      "score": 0.0755
+    },
+    {
+      "segment": [
+        9.35,
+        12.65
+      ],
+      "verb": "put",
+      "noun": "fridge",
+      "score": 0.0732
+    },
+    {
+      "segment": [
+        7.75,
+        10.25
+      ],
+      "verb": "turn-off",
+      "noun": "water",
+      "score": 0.0716
+    },
+    {
+      "segment": [
+        9.75,
+        12.25
+      ],
+      "verb": "open",
+      "noun": "cupboard",
+      "score": 0.0693
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "take",
+      "noun": "water",
+      "score": 0.0651
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "open",
+      "noun": "lid",
+      "score": 0.0624
+    },
+    {
+      "segment": [
+        29.75,
+        32.25
+      ],
+      "verb": "turn-off",
+      "noun": "glass",
+      "score": 0.0607
+    },
+    {
+      "segment": [
+        10.75,
+        13.25
+      ],
+      "verb": "open",
+      "noun": "bottle",
+      "score": 0.0598
+    },
+    {
+      "segment": [
+        35.35,
+        37.19
+      ],
+      "verb": "put",
+      "noun": "cupboard",
+      "score": 0.0573
+    },
+    {
+      "segment": [
+        7.35,
+        10.65
+      ],
+      "verb": "put",
+      "noun": "water",
+      "score": 0.0569
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "put",
+      "noun": "fridge",
+      "score": 0.0564
+    },
+    {
+      "segment": [
+        19.35,
+        22.65
+      ],
+      "verb": "insert",
+      "noun": "blueberry",
+      "score": 0.0563
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "close",
+      "noun": "glass",
+      "score": 0.056
+    },
+    {
+      "segment": [
+        27.75,
+        30.25
+      ],
+      "verb": "insert",
+      "noun": "water",
+      "score": 0.0557
+    },
+    {
+      "segment": [
+        33.95,
+        37.19
+      ],
+      "verb": "wash",
+      "noun": "glass",
+      "score": 0.0538
+    },
+    {
+      "segment": [
+        19.35,
+        22.65
+      ],
+      "verb": "insert",
+      "noun": "butter",
+      "score": 0.0528
+    },
+    {
+      "segment": [
+        17.75,
+        20.25
+      ],
+      "verb": "put",
+      "noun": "squash",
+      "score": 0.0522
+    },
+    {
+      "segment": [
+        31.35,
+        34.65
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.0514
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "take",
+      "noun": "bottle",
+      "score": 0.0513
+    },
+    {
+      "segment": [
+        19.35,
+        22.65
+      ],
+      "verb": "put",
+      "noun": "butter",
+      "score": 0.0505
+    },
+    {
+      "segment": [
+        20.35,
+        23.65
+      ],
+      "verb": "remove",
+      "noun": "bowl",
+      "score": 0.0499
+    },
+    {
+      "segment": [
+        8.35,
+        11.65
+      ],
+      "verb": "open",
+      "noun": "glass",
+      "score": 0.0481
+    },
+    {
+      "segment": [
+        20.35,
+        23.65
+      ],
+      "verb": "take",
+      "noun": "fridge",
+      "score": 0.0472
+    },
+    {
+      "segment": [
+        19.35,
+        22.65
+      ],
+      "verb": "put",
+      "noun": "blueberry",
+      "score": 0.0454
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.0448
+    },
+    {
+      "segment": [
+        8.35,
+        11.65
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.0446
+    },
+    {
+      "segment": [
+        21.35,
+        24.65
+      ],
+      "verb": "close",
+      "noun": "fridge",
+      "score": 0.0432
+    },
+    {
+      "segment": [
+        21.35,
+        24.65
+      ],
+      "verb": "take",
+      "noun": "butter",
+      "score": 0.0427
+    },
+    {
+      "segment": [
+        17.35,
+        20.65
+      ],
+      "verb": "insert",
+      "noun": "bottle",
+      "score": 0.0426
+    },
+    {
+      "segment": [
+        8.35,
+        11.65
+      ],
+      "verb": "put",
+      "noun": "cupboard",
+      "score": 0.0418
+    },
+    {
+      "segment": [
+        25.75,
+        28.25
+      ],
+      "verb": "put",
+      "noun": "tap",
+      "score": 0.0413
+    },
+    {
+      "segment": [
+        19.35,
+        22.65
+      ],
+      "verb": "insert",
+      "noun": "grape",
+      "score": 0.0408
+    },
+    {
+      "segment": [
+        19.75,
+        22.25
+      ],
+      "verb": "take",
+      "noun": "grape",
+      "score": 0.04
+    },
+    {
+      "segment": [
+        28.35,
+        31.65
+      ],
+      "verb": "fill",
+      "noun": "tap",
+      "score": 0.039
+    },
+    {
+      "segment": [
+        33.95,
+        37.19
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.0388
+    },
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "open",
+      "noun": "glass",
+      "score": 0.0383
+    },
+    {
+      "segment": [
+        26.75,
+        29.25
+      ],
+      "verb": "wash",
+      "noun": "water",
+      "score": 0.0369
+    },
+    {
+      "segment": [
+        21.35,
+        24.65
+      ],
+      "verb": "put",
+      "noun": "bowl",
+      "score": 0.0368
+    },
+    {
+      "segment": [
+        15.75,
+        18.25
+      ],
+      "verb": "put",
+      "noun": "squash",
+      "score": 0.0327
+    },
+    {
+      "segment": [
+        30.35,
+        33.65
+      ],
+      "verb": "put",
+      "noun": "tap",
+      "score": 0.0326
+    },
+    {
+      "segment": [
+        28.35,
+        31.65
+      ],
+      "verb": "fill",
+      "noun": "water",
+      "score": 0.0312
+    },
+    {
+      "segment": [
+        24.75,
+        27.25
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.0312
+    },
+    {
+      "segment": [
+        12.75,
+        15.25
+      ],
+      "verb": "take",
+      "noun": "squash",
+      "score": 0.0307
+    },
+    {
+      "segment": [
+        4.35,
+        7.65
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.0292
+    },
+    {
+      "segment": [
+        27.35,
+        30.65
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.027
+    },
+    {
+      "segment": [
+        17.35,
+        20.65
+      ],
+      "verb": "put",
+      "noun": "bottle",
+      "score": 0.0266
+    },
+    {
+      "segment": [
+        20.75,
+        23.25
+      ],
+      "verb": "take",
+      "noun": "bowl",
+      "score": 0.026
+    },
+    {
+      "segment": [
+        33.95,
+        37.19
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.0213
+    },
+    {
+      "segment": [
+        16.35,
+        19.65
+      ],
+      "verb": "close",
+      "noun": "bottle",
+      "score": 0.0204
+    },
+    {
+      "segment": [
+        6.35,
+        9.65
+      ],
+      "verb": "fill",
+      "noun": "tap",
+      "score": 0.0167
+    },
+    {
+      "segment": [
+        3.75,
+        6.25
+      ],
+      "verb": "fill",
+      "noun": "tap",
+      "score": 0.015
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        22.0,
+        26.05
+      ]
+    }
+  ]
+}

@@ -69,6 +69,12 @@ python code\run_video.py input.mp4 output.json `
   --dataset epic_kitchens_100 --manifest-duration 561.53
 ```
 
+For EPIC cache extraction, AVION processes eight windows per batch by default
+and marginalizes the checkpoint's 3806 joint-action logits into verb and noun
+probabilities. If CUDA runs out of memory, it halves the batch size and retries.
+Set `KAIROS_AVION_BATCH_SIZE` to a smaller positive integer for a more
+conservative batch size.
+
 `TEAM_ID_STR` sets the output team ID. Inference is configured to use local
 models; download and prepare checkpoints before running rather than relying on
 network access during inference.

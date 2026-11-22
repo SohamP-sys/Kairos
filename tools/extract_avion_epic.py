@@ -194,6 +194,31 @@ def make_windows(duration: float, scale: float) -> np.ndarray:
     return np.asarray(windows, dtype=np.float32)
 
 
+def predict_with_batch_fallback(classifier, clips: np.ndarray, batch_size: int):
+    active_batch_size = batch_size
+    while True:
+        try:
+            logits = classifier.predict_joint_logits(
+                clips,
+                batch_size=active_batch_size,
+            )
+            return logits, active_batch_size
+        except RuntimeError as exc:
+            if active_batch_size == 1 or "out of memory" not in str(exc).lower():
+                raise
+            reduced_batch_size = max(1, active_batch_size // 2)
+            print(
+                f"[AVION] Out of memory at batch size {active_batch_size}; "
+                f"retrying with {reduced_batch_size}.",
+                flush=True,
+            )
+            if str(getattr(classifier, "device", "")).startswith("cuda"):
+                import torch
+
+                torch.cuda.empty_cache()
+            active_batch_size = reduced_batch_size
+
+
 def extract_avion_cache(
     video_path: Path,
     output_path: Path,
@@ -238,12 +263,14 @@ def extract_avion_cache(
     cache: dict[str, np.ndarray] = {
         "duration_sec": np.asarray([duration], dtype=np.float32),
     }
+    active_batch_size = batch_size
     for scale_tag, scale in (("2s", 2.0), ("4s", 4.0)):
         windows = make_windows(duration, scale)
         logits_batches = []
         progress_step = max(1, len(windows) // 20)
-        for start in range(0, len(windows), batch_size):
-            batch_windows = windows[start:start + batch_size]
+        start = 0
+        while start < len(windows):
+            batch_windows = windows[start:start + active_batch_size]
             clips = np.asarray(
                 [
                     uniform_clip_frames(
@@ -253,16 +280,17 @@ def extract_avion_cache(
                 ],
                 dtype=np.uint8,
             )
-            logits_batches.append(
-                classifier.predict_joint_logits(
-                    clips,
-                    batch_size=batch_size,
-                )
+            logits, active_batch_size = predict_with_batch_fallback(
+                classifier,
+                clips,
+                active_batch_size,
             )
+            logits_batches.append(logits)
             completed = min(start + len(batch_windows), len(windows))
             if completed == len(windows) or completed % progress_step < len(batch_windows):
                 print(f"[AVION] {scale_tag}: {completed}/{len(windows)} windows", flush=True)
             del clips
+            start = completed
         joint_logits = np.concatenate(logits_batches, axis=0)
         verb_probs, noun_probs = classifier.marginalize(joint_logits)
         cache[f"windows_{scale_tag}"] = windows

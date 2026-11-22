@@ -1,0 +1,36 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Bike_lhTFVa0h9Rk",
+  "duration_sec": 287.51,
+  "label": {
+    "name": "other",
+    "score": 0.4263
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        5.0,
+        20.0
+      ]
+    },
+    {
+      "segment": [
+        59.0,
+        64.0
+      ]
+    },
+    {
+      "segment": [
+        80.0,
+        85.0
+      ]
+    },
+    {
+      "segment": [
+        140.0,
+        145.0
+      ]
+    }
+  ]
+}

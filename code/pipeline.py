@@ -38,12 +38,19 @@ def _create_epic_cache(video_path: Path, video_id: str) -> None:
         sys.path.insert(0, str(ROOT))
     from tools.extract_avion_epic import extract_avion_cache
 
+    try:
+        batch_size = int(os.environ.get("KAIROS_AVION_BATCH_SIZE", "8"))
+    except ValueError as exc:
+        raise ValueError("KAIROS_AVION_BATCH_SIZE must be a positive integer.") from exc
+    if batch_size < 1:
+        raise ValueError("KAIROS_AVION_BATCH_SIZE must be a positive integer.")
+
     cache_path = WEIGHTS / "epic_cache" / (video_id + ".npz")
     extract_avion_cache(
         video_path,
         cache_path,
         checkpoint_path=WEIGHTS / "avion" / "avion_finetune_cls_lavila_vitb_best.pt",
-        batch_size=1,
+        batch_size=batch_size,
     )
 
 
