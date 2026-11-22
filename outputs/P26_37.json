@@ -1,0 +1,2086 @@
+{
+  "team_id": "Kairos",
+  "video_id": "P26_37",
+  "duration_sec": 63.03,
+  "label": {
+    "name": "cooking",
+    "score": 1.0
+  },
+  "actions": [
+    {
+      "segment": [
+        6.35,
+        9.65
+      ],
+      "verb": "pour",
+      "noun": "water",
+      "score": 0.2773
+    },
+    {
+      "segment": [
+        57.35,
+        60.65
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.2159
+    },
+    {
+      "segment": [
+        13.75,
+        16.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.207
+    },
+    {
+      "segment": [
+        32.35,
+        35.65
+      ],
+      "verb": "adjust",
+      "noun": "hob",
+      "score": 0.1953
+    },
+    {
+      "segment": [
+        51.75,
+        54.25
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.1893
+    },
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "turn-on",
+      "noun": "tap",
+      "score": 0.1861
+    },
+    {
+      "segment": [
+        53.75,
+        56.25
+      ],
+      "verb": "open",
+      "noun": "lid",
+      "score": 0.1809
+    },
+    {
+      "segment": [
+        54.35,
+        57.65
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.1628
+    },
+    {
+      "segment": [
+        12.35,
+        15.65
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.1455
+    },
+    {
+      "segment": [
+        5.75,
+        8.25
+      ],
+      "verb": "pour",
+      "noun": "water",
+      "score": 0.1384
+    },
+    {
+      "segment": [
+        48.75,
+        51.25
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.1322
+    },
+    {
+      "segment": [
+        28.75,
+        31.25
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.129
+    },
+    {
+      "segment": [
+        2.75,
+        5.25
+      ],
+      "verb": "turn-off",
+      "noun": "tap",
+      "score": 0.1164
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "pour",
+      "noun": "water",
+      "score": 0.1124
+    },
+    {
+      "segment": [
+        35.75,
+        38.25
+      ],
+      "verb": "open",
+      "noun": "lid",
+      "score": 0.104
+    },
+    {
+      "segment": [
+        15.35,
+        18.65
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.1032
+    },
+    {
+      "segment": [
+        30.75,
+        33.25
+      ],
+      "verb": "put",
+      "noun": "pot",
+      "score": 0.0942
+    },
+    {
+      "segment": [
+        47.75,
+        50.25
+      ],
+      "verb": "close",
+      "noun": "lid",
+      "score": 0.0927
+    },
+    {
+      "segment": [
+        45.35,
+        48.65
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.0877
+    },
+    {
+      "segment": [
+        50.75,
+        53.25
+      ],
+      "verb": "close",
+      "noun": "lid",
+      "score": 0.0814
+    },
+    {
+      "segment": [
+        25.35,
+        28.65
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.0775
+    },
+    {
+      "segment": [
+        58.75,
+        61.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0741
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.0721
+    },
+    {
+      "segment": [
+        18.35,
+        21.65
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.0717
+    },
+    {
+      "segment": [
+        11.75,
+        14.25
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.0708
+    },
+    {
+      "segment": [
+        2.35,
+        5.65
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.0705
+    },
+    {
+      "segment": [
+        11.35,
+        14.65
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.0681
+    },
+    {
+      "segment": [
+        22.75,
+        25.25
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0667
+    },
+    {
+      "segment": [
+        4.75,
+        7.25
+      ],
+      "verb": "remove",
+      "noun": "lid",
+      "score": 0.0643
+    },
+    {
+      "segment": [
+        50.35,
+        53.65
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0643
+    },
+    {
+      "segment": [
+        54.75,
+        57.25
+      ],
+      "verb": "close",
+      "noun": "lid",
+      "score": 0.0642
+    },
+    {
+      "segment": [
+        15.75,
+        18.25
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0626
+    },
+    {
+      "segment": [
+        36.35,
+        39.65
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0593
+    },
+    {
+      "segment": [
+        61.27,
+        63.03
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0592
+    },
+    {
+      "segment": [
+        20.75,
+        23.25
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.0591
+    },
+    {
+      "segment": [
+        17.35,
+        20.65
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0571
+    },
+    {
+      "segment": [
+        52.75,
+        55.25
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0567
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.0564
+    },
+    {
+      "segment": [
+        36.35,
+        39.65
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.0546
+    },
+    {
+      "segment": [
+        27.75,
+        30.25
+      ],
+      "verb": "close",
+      "noun": "lid",
+      "score": 0.0522
+    },
+    {
+      "segment": [
+        4.75,
+        7.25
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0514
+    },
+    {
+      "segment": [
+        61.27,
+        63.03
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0509
+    },
+    {
+      "segment": [
+        38.35,
+        41.65
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0501
+    },
+    {
+      "segment": [
+        11.75,
+        14.25
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.0459
+    },
+    {
+      "segment": [
+        25.75,
+        28.25
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0457
+    },
+    {
+      "segment": [
+        34.35,
+        37.65
+      ],
+      "verb": "remove",
+      "noun": "lid",
+      "score": 0.0456
+    },
+    {
+      "segment": [
+        57.75,
+        60.25
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0455
+    },
+    {
+      "segment": [
+        30.75,
+        33.25
+      ],
+      "verb": "move",
+      "noun": "pot",
+      "score": 0.0454
+    },
+    {
+      "segment": [
+        32.35,
+        35.65
+      ],
+      "verb": "turn-on",
+      "noun": "hob",
+      "score": 0.0443
+    },
+    {
+      "segment": [
+        46.75,
+        49.25
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.0419
+    },
+    {
+      "segment": [
+        44.35,
+        47.65
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0418
+    },
+    {
+      "segment": [
+        34.35,
+        37.65
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0408
+    },
+    {
+      "segment": [
+        8.35,
+        11.65
+      ],
+      "verb": "insert",
+      "noun": "water",
+      "score": 0.0401
+    },
+    {
+      "segment": [
+        52.35,
+        55.65
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0395
+    },
+    {
+      "segment": [
+        51.75,
+        54.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0392
+    },
+    {
+      "segment": [
+        16.75,
+        19.25
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.0391
+    },
+    {
+      "segment": [
+        55.35,
+        58.65
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.039
+    },
+    {
+      "segment": [
+        14.35,
+        17.65
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.038
+    },
+    {
+      "segment": [
+        54.75,
+        57.25
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.0379
+    },
+    {
+      "segment": [
+        56.35,
+        59.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0366
+    },
+    {
+      "segment": [
+        26.75,
+        29.25
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.0362
+    },
+    {
+      "segment": [
+        11.75,
+        14.25
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0355
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "adjust",
+      "noun": "hob",
+      "score": 0.0352
+    },
+    {
+      "segment": [
+        49.35,
+        52.65
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0352
+    },
+    {
+      "segment": [
+        46.75,
+        49.25
+      ],
+      "verb": "mix",
+      "noun": "pasta",
+      "score": 0.0341
+    },
+    {
+      "segment": [
+        42.75,
+        45.25
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.034
+    },
+    {
+      "segment": [
+        48.35,
+        51.65
+      ],
+      "verb": "close",
+      "noun": "lid",
+      "score": 0.0339
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "turn-off",
+      "noun": "hob",
+      "score": 0.0325
+    },
+    {
+      "segment": [
+        35.75,
+        38.25
+      ],
+      "verb": "open",
+      "noun": "cupboard",
+      "score": 0.0317
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "fill",
+      "noun": "water",
+      "score": 0.0304
+    },
+    {
+      "segment": [
+        44.35,
+        47.65
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.0304
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "insert",
+      "noun": "water",
+      "score": 0.0298
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.0298
+    },
+    {
+      "segment": [
+        59.75,
+        62.25
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0296
+    },
+    {
+      "segment": [
+        31.35,
+        34.65
+      ],
+      "verb": "put",
+      "noun": "hob",
+      "score": 0.0291
+    },
+    {
+      "segment": [
+        14.75,
+        17.25
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.0286
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0271
+    },
+    {
+      "segment": [
+        55.35,
+        58.65
+      ],
+      "verb": "put",
+      "noun": "plate",
+      "score": 0.0271
+    },
+    {
+      "segment": [
+        28.35,
+        31.65
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.0269
+    },
+    {
+      "segment": [
+        34.35,
+        37.65
+      ],
+      "verb": "open",
+      "noun": "lid",
+      "score": 0.0268
+    },
+    {
+      "segment": [
+        37.75,
+        40.25
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.0267
+    },
+    {
+      "segment": [
+        31.35,
+        34.65
+      ],
+      "verb": "adjust",
+      "noun": "pot",
+      "score": 0.0266
+    },
+    {
+      "segment": [
+        28.75,
+        31.25
+      ],
+      "verb": "insert",
+      "noun": "lid",
+      "score": 0.0264
+    },
+    {
+      "segment": [
+        13.35,
+        16.65
+      ],
+      "verb": "take",
+      "noun": "sauce",
+      "score": 0.0264
+    },
+    {
+      "segment": [
+        61.27,
+        63.03
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.0263
+    },
+    {
+      "segment": [
+        46.75,
+        49.25
+      ],
+      "verb": "take",
+      "noun": "sauce",
+      "score": 0.0262
+    },
+    {
+      "segment": [
+        34.75,
+        37.25
+      ],
+      "verb": "take",
+      "noun": "hob",
+      "score": 0.0262
+    },
+    {
+      "segment": [
+        53.35,
+        56.65
+      ],
+      "verb": "close",
+      "noun": "lid",
+      "score": 0.0259
+    },
+    {
+      "segment": [
+        28.35,
+        31.65
+      ],
+      "verb": "close",
+      "noun": "lid",
+      "score": 0.0258
+    },
+    {
+      "segment": [
+        34.75,
+        37.25
+      ],
+      "verb": "take",
+      "noun": "pot",
+      "score": 0.0257
+    },
+    {
+      "segment": [
+        56.35,
+        59.65
+      ],
+      "verb": "wash",
+      "noun": "spoon",
+      "score": 0.0257
+    },
+    {
+      "segment": [
+        3.35,
+        6.65
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0256
+    },
+    {
+      "segment": [
+        52.35,
+        55.65
+      ],
+      "verb": "open",
+      "noun": "lid",
+      "score": 0.0256
+    },
+    {
+      "segment": [
+        32.35,
+        35.65
+      ],
+      "verb": "adjust",
+      "noun": "oven",
+      "score": 0.0253
+    },
+    {
+      "segment": [
+        3.75,
+        6.25
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.0252
+    },
+    {
+      "segment": [
+        51.75,
+        54.25
+      ],
+      "verb": "wash",
+      "noun": "spoon",
+      "score": 0.0252
+    },
+    {
+      "segment": [
+        14.35,
+        17.65
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0252
+    },
+    {
+      "segment": [
+        25.35,
+        28.65
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.0249
+    },
+    {
+      "segment": [
+        30.75,
+        33.25
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0245
+    },
+    {
+      "segment": [
+        31.75,
+        34.25
+      ],
+      "verb": "move",
+      "noun": "hob",
+      "score": 0.0245
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.0244
+    },
+    {
+      "segment": [
+        20.35,
+        23.65
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.0242
+    },
+    {
+      "segment": [
+        45.75,
+        48.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0242
+    },
+    {
+      "segment": [
+        39.75,
+        42.25
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0239
+    },
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "turn-on",
+      "noun": "water",
+      "score": 0.0238
+    },
+    {
+      "segment": [
+        47.35,
+        50.65
+      ],
+      "verb": "put",
+      "noun": "sauce",
+      "score": 0.0236
+    },
+    {
+      "segment": [
+        58.35,
+        61.65
+      ],
+      "verb": "take",
+      "noun": "pot",
+      "score": 0.0236
+    },
+    {
+      "segment": [
+        27.35,
+        30.65
+      ],
+      "verb": "put",
+      "noun": "sauce",
+      "score": 0.0235
+    },
+    {
+      "segment": [
+        2.35,
+        5.65
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.0233
+    },
+    {
+      "segment": [
+        12.35,
+        15.65
+      ],
+      "verb": "put",
+      "noun": "pot",
+      "score": 0.0231
+    },
+    {
+      "segment": [
+        12.35,
+        15.65
+      ],
+      "verb": "wash",
+      "noun": "spoon",
+      "score": 0.023
+    },
+    {
+      "segment": [
+        37.75,
+        40.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0228
+    },
+    {
+      "segment": [
+        58.35,
+        61.65
+      ],
+      "verb": "put",
+      "noun": "pot",
+      "score": 0.0226
+    },
+    {
+      "segment": [
+        43.75,
+        46.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0224
+    },
+    {
+      "segment": [
+        53.35,
+        56.65
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0224
+    },
+    {
+      "segment": [
+        31.75,
+        34.25
+      ],
+      "verb": "turn-on",
+      "noun": "hob",
+      "score": 0.0221
+    },
+    {
+      "segment": [
+        9.75,
+        12.25
+      ],
+      "verb": "insert",
+      "noun": "water",
+      "score": 0.022
+    },
+    {
+      "segment": [
+        29.75,
+        32.25
+      ],
+      "verb": "wrap",
+      "noun": "lid",
+      "score": 0.0214
+    },
+    {
+      "segment": [
+        20.35,
+        23.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0214
+    },
+    {
+      "segment": [
+        23.75,
+        26.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0214
+    },
+    {
+      "segment": [
+        48.35,
+        51.65
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.0211
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.021
+    },
+    {
+      "segment": [
+        51.75,
+        54.25
+      ],
+      "verb": "put",
+      "noun": "fork",
+      "score": 0.021
+    },
+    {
+      "segment": [
+        50.35,
+        53.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0208
+    },
+    {
+      "segment": [
+        39.75,
+        42.25
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.0207
+    },
+    {
+      "segment": [
+        57.75,
+        60.25
+      ],
+      "verb": "insert",
+      "noun": "spoon",
+      "score": 0.0206
+    },
+    {
+      "segment": [
+        35.75,
+        38.25
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0206
+    },
+    {
+      "segment": [
+        26.75,
+        29.25
+      ],
+      "verb": "take",
+      "noun": "sauce",
+      "score": 0.0205
+    },
+    {
+      "segment": [
+        12.75,
+        15.25
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0205
+    },
+    {
+      "segment": [
+        41.35,
+        44.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0201
+    },
+    {
+      "segment": [
+        3.35,
+        6.65
+      ],
+      "verb": "take",
+      "noun": "glass",
+      "score": 0.0201
+    },
+    {
+      "segment": [
+        61.27,
+        63.03
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0201
+    },
+    {
+      "segment": [
+        15.75,
+        18.25
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.0201
+    },
+    {
+      "segment": [
+        35.35,
+        38.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.02
+    },
+    {
+      "segment": [
+        43.75,
+        46.25
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0198
+    },
+    {
+      "segment": [
+        61.27,
+        63.03
+      ],
+      "verb": "insert",
+      "noun": "spoon",
+      "score": 0.0197
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "take",
+      "noun": "water",
+      "score": 0.0196
+    },
+    {
+      "segment": [
+        25.75,
+        28.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0196
+    },
+    {
+      "segment": [
+        17.75,
+        20.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0194
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "turn-on",
+      "noun": "glass",
+      "score": 0.0194
+    },
+    {
+      "segment": [
+        30.35,
+        33.65
+      ],
+      "verb": "take",
+      "noun": "pot",
+      "score": 0.0194
+    },
+    {
+      "segment": [
+        50.75,
+        53.25
+      ],
+      "verb": "put",
+      "noun": "pot",
+      "score": 0.0191
+    },
+    {
+      "segment": [
+        59.87,
+        63.03
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0191
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.019
+    },
+    {
+      "segment": [
+        47.35,
+        50.65
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0189
+    },
+    {
+      "segment": [
+        27.75,
+        30.25
+      ],
+      "verb": "put",
+      "noun": "pot",
+      "score": 0.0189
+    },
+    {
+      "segment": [
+        4.35,
+        7.65
+      ],
+      "verb": "put",
+      "noun": "water",
+      "score": 0.0184
+    },
+    {
+      "segment": [
+        18.35,
+        21.65
+      ],
+      "verb": "take",
+      "noun": "sauce",
+      "score": 0.0181
+    },
+    {
+      "segment": [
+        29.75,
+        32.25
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.0181
+    },
+    {
+      "segment": [
+        39.75,
+        42.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0179
+    },
+    {
+      "segment": [
+        41.35,
+        44.65
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0179
+    },
+    {
+      "segment": [
+        58.35,
+        61.65
+      ],
+      "verb": "move",
+      "noun": "spoon",
+      "score": 0.0177
+    },
+    {
+      "segment": [
+        33.35,
+        36.65
+      ],
+      "verb": "adjust",
+      "noun": "pot",
+      "score": 0.0174
+    },
+    {
+      "segment": [
+        23.75,
+        26.25
+      ],
+      "verb": "take",
+      "noun": "sauce",
+      "score": 0.0173
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "turn-off",
+      "noun": "water",
+      "score": 0.0171
+    },
+    {
+      "segment": [
+        47.75,
+        50.25
+      ],
+      "verb": "close",
+      "noun": "sauce",
+      "score": 0.0166
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "adjust",
+      "noun": "lid",
+      "score": 0.0164
+    },
+    {
+      "segment": [
+        20.75,
+        23.25
+      ],
+      "verb": "take",
+      "noun": "sauce",
+      "score": 0.0163
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0162
+    },
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "pour",
+      "noun": "tap",
+      "score": 0.0162
+    },
+    {
+      "segment": [
+        37.75,
+        40.25
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0159
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "put",
+      "noun": "water",
+      "score": 0.0156
+    },
+    {
+      "segment": [
+        37.75,
+        40.25
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0156
+    },
+    {
+      "segment": [
+        13.35,
+        16.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0156
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "put",
+      "noun": "hob",
+      "score": 0.0154
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "mix",
+      "noun": "food",
+      "score": 0.0153
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "fill",
+      "noun": "glass",
+      "score": 0.0153
+    },
+    {
+      "segment": [
+        43.75,
+        46.25
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.015
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "take",
+      "noun": "water",
+      "score": 0.0145
+    },
+    {
+      "segment": [
+        22.75,
+        25.25
+      ],
+      "verb": "mix",
+      "noun": "sauce",
+      "score": 0.0145
+    },
+    {
+      "segment": [
+        59.75,
+        62.25
+      ],
+      "verb": "put",
+      "noun": "hob",
+      "score": 0.0144
+    },
+    {
+      "segment": [
+        59.87,
+        63.03
+      ],
+      "verb": "take",
+      "noun": "hob",
+      "score": 0.0144
+    },
+    {
+      "segment": [
+        14.75,
+        17.25
+      ],
+      "verb": "take",
+      "noun": "sauce",
+      "score": 0.0142
+    },
+    {
+      "segment": [
+        33.35,
+        36.65
+      ],
+      "verb": "take",
+      "noun": "hob",
+      "score": 0.0141
+    },
+    {
+      "segment": [
+        39.75,
+        42.25
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.014
+    },
+    {
+      "segment": [
+        36.35,
+        39.65
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.014
+    },
+    {
+      "segment": [
+        45.75,
+        48.25
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.0138
+    },
+    {
+      "segment": [
+        13.75,
+        16.25
+      ],
+      "verb": "take",
+      "noun": "fork",
+      "score": 0.0138
+    },
+    {
+      "segment": [
+        2.35,
+        5.65
+      ],
+      "verb": "turn-off",
+      "noun": "lid",
+      "score": 0.0131
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "adjust",
+      "noun": "spoon",
+      "score": 0.0128
+    },
+    {
+      "segment": [
+        54.75,
+        57.25
+      ],
+      "verb": "put",
+      "noun": "plate",
+      "score": 0.0126
+    },
+    {
+      "segment": [
+        33.75,
+        36.25
+      ],
+      "verb": "adjust",
+      "noun": "oven",
+      "score": 0.0126
+    },
+    {
+      "segment": [
+        8.75,
+        11.25
+      ],
+      "verb": "put",
+      "noun": "water",
+      "score": 0.0121
+    },
+    {
+      "segment": [
+        4.75,
+        7.25
+      ],
+      "verb": "remove",
+      "noun": "glass",
+      "score": 0.012
+    },
+    {
+      "segment": [
+        5.35,
+        8.65
+      ],
+      "verb": "pour",
+      "noun": "lid",
+      "score": 0.0119
+    },
+    {
+      "segment": [
+        45.35,
+        48.65
+      ],
+      "verb": "take",
+      "noun": "sauce",
+      "score": 0.0115
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0114
+    },
+    {
+      "segment": [
+        9.75,
+        12.25
+      ],
+      "verb": "insert",
+      "noun": "glass",
+      "score": 0.0114
+    },
+    {
+      "segment": [
+        11.35,
+        14.65
+      ],
+      "verb": "put",
+      "noun": "glass",
+      "score": 0.0113
+    },
+    {
+      "segment": [
+        13.75,
+        16.25
+      ],
+      "verb": "wash",
+      "noun": "spoon",
+      "score": 0.0112
+    },
+    {
+      "segment": [
+        2.75,
+        5.25
+      ],
+      "verb": "turn-off",
+      "noun": "glass",
+      "score": 0.011
+    },
+    {
+      "segment": [
+        47.75,
+        50.25
+      ],
+      "verb": "close",
+      "noun": "pot",
+      "score": 0.0109
+    },
+    {
+      "segment": [
+        54.75,
+        57.25
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0106
+    },
+    {
+      "segment": [
+        49.35,
+        52.65
+      ],
+      "verb": "put",
+      "noun": "pot",
+      "score": 0.0102
+    },
+    {
+      "segment": [
+        26.35,
+        29.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0099
+    },
+    {
+      "segment": [
+        2.35,
+        5.65
+      ],
+      "verb": "turn-off",
+      "noun": "tap",
+      "score": 0.0098
+    },
+    {
+      "segment": [
+        42.75,
+        45.25
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0096
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.0089
+    },
+    {
+      "segment": [
+        33.35,
+        36.65
+      ],
+      "verb": "adjust",
+      "noun": "lid",
+      "score": 0.0088
+    },
+    {
+      "segment": [
+        7.35,
+        10.65
+      ],
+      "verb": "pour",
+      "noun": "spoon",
+      "score": 0.0088
+    },
+    {
+      "segment": [
+        30.35,
+        33.65
+      ],
+      "verb": "put",
+      "noun": "pot",
+      "score": 0.0087
+    },
+    {
+      "segment": [
+        21.35,
+        24.65
+      ],
+      "verb": "take",
+      "noun": "sauce",
+      "score": 0.0086
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "pour",
+      "noun": "tap",
+      "score": 0.0086
+    },
+    {
+      "segment": [
+        53.75,
+        56.25
+      ],
+      "verb": "open",
+      "noun": "pot",
+      "score": 0.0086
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "pour",
+      "noun": "glass",
+      "score": 0.0084
+    },
+    {
+      "segment": [
+        7.75,
+        10.25
+      ],
+      "verb": "pour",
+      "noun": "lid",
+      "score": 0.0082
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "take",
+      "noun": "water",
+      "score": 0.0081
+    },
+    {
+      "segment": [
+        7.35,
+        10.65
+      ],
+      "verb": "take",
+      "noun": "water",
+      "score": 0.0078
+    },
+    {
+      "segment": [
+        53.75,
+        56.25
+      ],
+      "verb": "open",
+      "noun": "spoon",
+      "score": 0.0077
+    },
+    {
+      "segment": [
+        58.35,
+        61.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0076
+    },
+    {
+      "segment": [
+        8.35,
+        11.65
+      ],
+      "verb": "pour",
+      "noun": "glass",
+      "score": 0.0074
+    },
+    {
+      "segment": [
+        44.35,
+        47.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0072
+    },
+    {
+      "segment": [
+        38.35,
+        41.65
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.0068
+    },
+    {
+      "segment": [
+        30.35,
+        33.65
+      ],
+      "verb": "move",
+      "noun": "pot",
+      "score": 0.0064
+    },
+    {
+      "segment": [
+        38.35,
+        41.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0063
+    },
+    {
+      "segment": [
+        11.35,
+        14.65
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0057
+    },
+    {
+      "segment": [
+        31.35,
+        34.65
+      ],
+      "verb": "move",
+      "noun": "hob",
+      "score": 0.0054
+    },
+    {
+      "segment": [
+        25.75,
+        28.25
+      ],
+      "verb": "mix",
+      "noun": "spoon",
+      "score": 0.0052
+    },
+    {
+      "segment": [
+        24.35,
+        27.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0051
+    },
+    {
+      "segment": [
+        31.75,
+        34.25
+      ],
+      "verb": "adjust",
+      "noun": "pot",
+      "score": 0.0051
+    },
+    {
+      "segment": [
+        38.35,
+        41.65
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0048
+    },
+    {
+      "segment": [
+        5.35,
+        8.65
+      ],
+      "verb": "pour",
+      "noun": "tap",
+      "score": 0.0047
+    },
+    {
+      "segment": [
+        26.35,
+        29.65
+      ],
+      "verb": "take",
+      "noun": "sauce",
+      "score": 0.0047
+    },
+    {
+      "segment": [
+        59.87,
+        63.03
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0045
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0044
+    },
+    {
+      "segment": [
+        27.75,
+        30.25
+      ],
+      "verb": "put",
+      "noun": "sauce",
+      "score": 0.0043
+    },
+    {
+      "segment": [
+        57.35,
+        60.65
+      ],
+      "verb": "insert",
+      "noun": "spoon",
+      "score": 0.0043
+    },
+    {
+      "segment": [
+        7.35,
+        10.65
+      ],
+      "verb": "pour",
+      "noun": "tap",
+      "score": 0.0037
+    },
+    {
+      "segment": [
+        8.35,
+        11.65
+      ],
+      "verb": "insert",
+      "noun": "glass",
+      "score": 0.0037
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        0.0,
+        4.05
+      ]
+    },
+    {
+      "segment": [
+        5.0,
+        9.05
+      ]
+    }
+  ]
+}
