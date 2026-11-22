@@ -1,0 +1,30 @@
+{
+  "team_id": "Kairos",
+  "video_id": "RockClimbing_EaKtFLoXTCI",
+  "duration_sec": 374.0,
+  "label": {
+    "name": "rockclimbing",
+    "score": 0.3547
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        183.0,
+        193.0
+      ]
+    },
+    {
+      "segment": [
+        214.0,
+        225.0
+      ]
+    },
+    {
+      "segment": [
+        301.0,
+        316.0
+      ]
+    }
+  ]
+}
