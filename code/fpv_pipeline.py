@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import numpy as np
@@ -33,7 +34,15 @@ def run_fpv_branch(
         Path(__file__).resolve().parents[1] / "weights"
     )
 
-    video_model = video_model or VideoMAEFpvClassifier()
+    weights_dir = Path(
+        os.environ.get(
+            "KAIROS_WEIGHTS_DIR",
+            Path(__file__).resolve().parents[1] / "weights",
+        )
+    ).expanduser()
+    video_model = video_model or VideoMAEFpvClassifier(
+        model_path=weights_dir / "videomae_kinetics"
+    )
 
     # Keep frame extraction shared and low-cost; one frame per second at 224 px.
     if frames is None:

@@ -1,158 +1,141 @@
 # Track 4 — Action-Aware Video Summarization
 
-Samsung PRISM XR Hackathon 2026 — project starter/fallback pipeline.
+Samsung PRISM XR Hackathon 2026.
 
-## Status and honesty note
-This package is runnable and includes a deterministic motion/audio/visual-feature baseline, optional local SigLIP zero-shot classification, an EPIC cached-logit action decoder, a real AVION ViT-B adapter, a highlight selector, output assembly, and a local validator. **It does not yet include a trained actionness gate, measured EPIC calibration, official FPVSum annotations, or the organizer's official validator.** Model accuracy must not be described as verified until real dataset evaluation is run.
+## Status
 
-## Run
+The project has dataset-specific inference paths: AVION ViT-B for EPIC-KITCHENS
+and SigLIP/VideoMAE plus temporal highlight selection for FPVSum. It also keeps
+heuristic fallback behavior for unavailable models, unreadable media, or failed
+inference stages. Real EPIC mAP/coverage and FPVSum F1/label-accuracy benchmarks
+have not been reported; do not treat smoke tests as accuracy results.
 
-Requirements: Python 3.10+ (tested target), `ffmpeg` and `ffprobe` available on PATH.
+## Architecture
+
+- **EPIC-KITCHENS-100:** manifest metadata selects the EPIC route. AVION extracts
+  action scores over short temporal windows; the EPIC decoder maps these to
+  supported verb/noun actions, and the action-aware selector chooses highlights.
+- **FPVSum:** SigLIP provides frame-level category semantics and VideoMAE provides
+  an optional Kinetics action signal. The FPV pipeline combines model scores and
+  temporal features to select non-overlapping highlights within the duration
+  budget.
+- **Fallbacks:** if a model, cache, or media stage fails, the pipeline can use
+  motion/feature-based highlights and safe output assembly instead. These
+  fallbacks improve robustness; they are not AVION predictions or evidence of
+  model accuracy.
+- **Output:** one JSON object with `team_id`, `video_id`, `duration_sec`,
+  `label`, `actions`, and `highlights`. Dataset-specific schema and timing rules
+  are checked against the manifest.
+
+## AVION windows and cache
+
+`tools/extract_avion_epic.py` decodes frames at 8 fps and extracts 16 frames for
+each clip. It evaluates 2-second and 4-second windows at a 1-second stride.
+The default cache stores window timestamps and separate verb/noun log-marginal
+scores. The decoder also accepts joint-action logits when supplied by another
+cache producer, but the current extractor does not write those joint logits.
+
+For one EPIC video, a missing cache is created automatically during inference.
+The AVION checkpoint and source tree must be available locally:
+
+- `weights/avion/avion_finetune_cls_lavila_vitb_best.pt`
+- `third_party/AVION/`
+- `weights/epic_priors.npz`
+
+The checkpoint downloader verifies its published MD5 prefix. AVION can run on
+CUDA, MPS, or CPU; Windows setup prepares its optional FlashAttention imports so
+the configured non-FlashAttention inference path can load.
+
+## Setup and single-video inference
+
+Python 3.10+ and `ffmpeg`/`ffprobe` are required. On macOS/Linux:
 
 ```bash
 python -m pip install -r requirements.txt
-./run.sh input.mp4 output.json
-```
-
-Set `TEAM_ID_STR` before running to use the same non-empty team ID for all submissions:
-
-```bash
 export TEAM_ID_STR="YOUR_TEAM_ID"
 ./run.sh input.mp4 output.json
 ```
 
-The output JSON has `team_id`, `video_id`, `duration_sec`, `label`, `actions`, and `highlights`. All model paths are local/offline. By default no model download is attempted. To enable the SigLIP model download during setup, set `ALLOW_MODEL_DOWNLOAD=1` before launching (not recommended in the competition's offline inference environment). If a local SigLIP checkpoint exists at `weights/siglip_vit_b_16.pt`, the router tries to load it.
+On Windows, `run.sh` is not the entry point; use the Python runner after setup:
 
-## Architecture
-
-- **Decode / duration:** `ffprobe` for duration; `ffmpeg` grayscale motion extraction.
-- **Fallback highlight baseline:** top-motion non-overlapping windows, safe sanitization.
-- **Optional FPV route/classifier:** SigLIP text prompt ensemble, if local model and `open_clip` are installed; otherwise conservative `other` label.
-- **Branch routing:** a `cooking` route uses the EPIC cached-logit decoder when its AVION cache and class/prior files are present. Until then, it keeps the cooking label and uses the motion fallback instead of being sent through the sports classifier.
-- **FPV highlights:** combined motion, audio spectral flux/high-band energy, embedding novelty, and optional category prompt similarity. These are heuristic signals; no annotation-based training is performed.
-- **EPIC action decoder:** `epic_actions.py` consumes AVION joint-action logits when present, preserving the model's verb–noun pair confidence; older caches with separate verb/noun logits remain readable. It applies a soft actionness gate, temporal peaks, and soft-NMS.
-- **EPIC highlights:** instance-aware noisy-OR/max greedy selection in `epic_select.py`.
-- **Fallback ladder:** optional stages fail independently; final assembly clamps timestamps, sanitizes labels/actions/highlights, and writes JSON.
-
-## Optional EPIC cache contract
-Place an NPZ at `weights/epic_cache/<video_id>.npz`. It must contain:
-
-- `duration_sec` (single numeric value)
-- `windows_2s`, `windows_4s` arrays shaped `[N,2]` with start/end seconds
-- preferred: `joint_logits_2s`, `joint_logits_4s`, each with 3806 class scores per window
-- backward-compatible: `verb_logits_2s`, `noun_logits_2s`, `verb_logits_4s`, `noun_logits_4s`
-- optional `motion_1hz`, `drift_1hz`
-
-Action class keys and pair priors are loaded from `weights/epic_priors.npz` when available. Without that file, the decoder uses placeholder keys and uniform priors, so decoded action labels are not meaningful. Use the organizer vocabulary before packaging.
-
-## AVION EK100 extraction
-
-When a video is routed to cooking, `./run.sh` automatically extracts and stores a
-missing AVION cache at `weights/epic_cache/<video_id>.npz`, then immediately runs
-the EPIC decoder. The first run takes longer; later runs reuse the cache. To
-precompute a cache manually (optional):
-
-```bash
-python tools/extract_avion_epic.py input.mp4 weights/epic_cache/input.npz
+```powershell
+python code\run_video.py input.mp4 output.json --dataset fpvsum
 ```
 
-The extractor loads the MD5-verified checkpoint at
-`weights/avion/avion_finetune_cls_lavila_vitb_best.pt`, uniformly samples 16
-frames per window, and stores the checkpoint's 3806 joint-action logits along
-with verb/noun marginals for backward compatibility. It uses CPU/MPS/CUDA as available and
-does not require flash-attention at inference. PyTorch/timm deprecation warnings
-during model import are non-fatal; extraction progress is printed separately.
+For EPIC, pass the dataset and official manifest duration:
 
-## Manifest batch inference and validation
-
-Use the manifest's `dataset` column to select the EPIC or FPV route and set the
-same team ID for every output:
-
-```bash
-python batch.py /path/to/videos outputs --manifest details/manifest.csv --team-id YOUR_TEAM_ID
-python tools/validate_outputs.py outputs --manifest details/manifest.csv --team-id YOUR_TEAM_ID --classes supported_classes.json
+```powershell
+python code\run_video.py input.mp4 output.json `
+  --dataset epic_kitchens_100 --manifest-duration 561.53
 ```
 
-Batch inference fails when a manifest video is missing or an output is invalid.
-Do not use `--fill-missing` for submission: it deliberately emits metadata-only
-placeholders, not video predictions. For final acceptance, also run the exact
-organizer-provided `validate.py` on the entire output directory.
+`TEAM_ID_STR` sets the output team ID. Inference is configured to use local
+models; download and prepare checkpoints before running rather than relying on
+network access during inference.
 
-The public source repository does not include large model checkpoints or raw
-videos. The final submission archive must include all required model weights
-and run successfully offline; the inference entry point must not download
-weights at runtime.
+## Windows NVIDIA setup
 
-## Disk-conscious data utilities
+Create the project virtual environment first. Then run the setup script from the
+repository root, choosing a work drive with sufficient free space:
 
-- `tools/stream_epic.py` is an optional script to sequentially download, resize, and delete EPIC originals. It requires the official `epic_downloader.py`, manifest, and permission to download data. Review its settings and disk threshold before running.
-- `tools/download_fpv.py` uses `yt-dlp`; dataset availability, access rules, and licensing apply.
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+powershell -ExecutionPolicy Bypass -File tools\setup_windows.ps1 `
+  -WorkDir D:\Kairos-Track4-work -TeamId YOUR_TEAM_ID
+```
 
-These scripts do not run during inference.
+The script installs CUDA 12.6 PyTorch and model/download dependencies; clones
+and prepares AVION; downloads the AVION, SigLIP, and VideoMAE checkpoints; and
+checks CUDA access and model forward passes. It places weights and temporary
+files under `-WorkDir`. The Python environment remains in `.venv`.
 
+## Run and validate the full manifest
+
+The checked-in [`manifest.csv`](manifest.csv) lists 187 videos (138 EPIC-KITCHENS
+and 49 FPVSum). For sources already downloaded and named by manifest ID:
+
+```powershell
+python batch.py path\to\videos outputs --team-id YOUR_TEAM_ID
+python validate.py --dir outputs
+```
+
+Batch inference searches the video directory recursively, enforces dataset
+labels, and checks probed duration against the manifest. Missing inputs or
+failed inference produce a non-zero batch status. `--fill-missing` writes
+metadata-only placeholders for development and is not suitable for submission.
+Run the organizer-provided validator on the final submission as well.
+
+To download, infer, validate, and remove source videos incrementally instead of
+storing the full EPIC collection, use:
+
+```powershell
+python tools\stream_manifest.py manifest.csv `
+  --work-dir D:\Kairos-Track4-work --team-id YOUR_TEAM_ID
+```
+
+The streaming runner checks required local models, processes manifest entries,
+validates each output before publishing it, and removes only its own downloaded
+source directory after success. It can prefetch one next video when disk space
+allows; a failed stage retains the source for retry. The full run still
+downloads every listed video over time. EPIC and FPVSum access and licensing
+rules apply.
+
+## Weights, outputs, and limitations
+
+Large checkpoints, raw videos, and generated outputs are intentionally not
+stored in the source repository. See [`weights/README.md`](weights/README.md)
+for expected local model paths and `KAIROS_WEIGHTS_DIR` behavior. Include the
+required checkpoints and the complete validated output set in the final
+submission package, then test it offline.
+
+The system has not yet been benchmarked against the official scored metrics.
+FPV category mapping and heuristic fallback behavior need evaluation on the
+provided development data. The local validator checks structure and manifest
+consistency, but does not calculate the competition scores.
 
 ## Tests
 
 ```bash
 python -m unittest discover -s tests -v
 ```
-
-Tests use a synthetic video and a corrupt file to exercise fallback behavior. The official organizer validator should still be run on every output before submission.
-
-## Reproducibility and limitations
-
-- Inference is deterministic for the fallback path.
-- Video IDs and filenames are not prediction features. In manifest batch mode, the official dataset column selects the dataset-specific route; single-video inference uses content-based routing.
-- This baseline is not trained or calibrated on hackathon annotations.
-- Small videos under 4.05 s cannot satisfy the minimum highlight length; the validator/scoring special case needs organizer clarification.
-- Current highlight selector uses temporal windows, not semantic KTS shots.
-- `TEAM_ID` is a placeholder; configure `TEAM_ID_STR` before submission.
-
-
-## Architecture update (Nov 18, 2026)
-
-The FPV branch is now wired in the code path and includes: optional local VideoMAE Kinetics classifier (`code/videomae_fpv.py`), SigLIP frame semantics, multi-signal importance curve, feature-based KTS-style temporal segmentation (`code/kts.py`), and duration-budget knapsack highlight selection (`code/fpv_pipeline.py`). Model dependencies are listed separately in `requirements-models.txt`; install CUDA-compatible PyTorch first. Place a locally downloaded VideoMAE checkpoint under `weights/videomae_kinetics/` (Hugging Face model folder including config and weights).
-
-**Important status:** this FPV integration has been code-wired and unit-tested only in the no-checkpoint fallback. VideoMAE inference with real weights is not verified. Kinetics-to-FPVSum mapping is conservative and may need dataset evaluation. SigLIP also requires its local checkpoint.
-
-**AVION is now integrated for cache extraction.** The ViT-B checkpoint loads, produces 3806 joint-action logits, marginalizes them to the official 97 verb and 300 noun classes, and passes a synthetic forward test. Real EPIC validation-mAP and coverage benchmarks, calibration, and throughput still remain to be measured.
-
-### Installing optional model packages
-
-Base setup does not install heavyweight model dependencies. For the RTX 3050 machine, first install the PyTorch build matching your CUDA setup using the official PyTorch selector, then from the project root run:
-
-```bash
-python -m pip install -r requirements-models.txt
-```
-
-VideoMAE local model directory expected: `weights/videomae_kinetics/`. SigLIP local model folder expected: `weights/siglip/`. At inference, the pipeline does not download models.
-
-## Apple Silicon Mac setup (MPS)
-
-This project can be set up on Apple Silicon Macs for local model inference. The Mac can use PyTorch's MPS backend where supported; model files are downloaded explicitly, then inference is offline. For the 8 GB MacBook Air, do not keep multiple large models in memory while experimenting.
-
-```bash
-./setup_mac.sh
-source .venv/bin/activate
-python tools/download_models.py
-```
-
-The download helper stores model snapshots under `weights/siglip/` and `weights/videomae_kinetics/`. `run.sh` is still configured for offline inference. VideoMAE maps Kinetics labels conservatively to the FPVSum categories; unmapped classes are ignored rather than guessed.
-
-### AVION status (not falsely marked complete)
-
-`tools/download_avion.py` downloads and MD5-verifies the EK100 fine-tuned ViT-B checkpoint.
-`tools/extract_avion_epic.py` runs 2-second and 4-second windows and writes the NPZ cache
-consumed by the EPIC branch. The adapter is synthetic-forward tested; real benchmark
-accuracy and throughput are still not reported.
-
-## Model availability check
-
-After setup and download, run:
-
-```bash
-python tools/environment_check.py
-PYTHONPATH=code python -c "from router_siglip import SigLIPRouter; from videomae_fpv import VideoMAEFpvClassifier; print('SigLIP:', SigLIPRouter().enabled); print('VideoMAE:', VideoMAEFpvClassifier().enabled)"
-```
-
-This reports whether local models load; it is not an accuracy benchmark.

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from pathlib import Path
 
@@ -10,6 +11,10 @@ import numpy as np
 
 
 ROOT = Path(__file__).resolve().parents[1]
+WEIGHTS = Path(os.environ.get("KAIROS_WEIGHTS_DIR", ROOT / "weights")).expanduser()
+AVION_ROOT = Path(
+    os.environ.get("KAIROS_AVION_ROOT", ROOT / "third_party" / "AVION")
+).expanduser()
 sys.path.insert(0, str(ROOT / "code"))
 
 from avion_epic import AVIONEpicClassifier
@@ -199,7 +204,7 @@ def extract_avion_cache(
     output_path = Path(output_path)
     checkpoint_path = Path(
         checkpoint_path
-        or ROOT / "weights" / "avion" / "avion_finetune_cls_lavila_vitb_best.pt"
+        or WEIGHTS / "avion" / "avion_finetune_cls_lavila_vitb_best.pt"
     )
     if batch_size < 1:
         raise ValueError("AVION batch size must be at least 1")
@@ -219,9 +224,9 @@ def extract_avion_cache(
     print("[AVION] Loading checkpoint...", flush=True)
     classifier = AVIONEpicClassifier(
         checkpoint_path,
-        ROOT / "third_party" / "AVION",
+        AVION_ROOT,
     )
-    priors_path = ROOT / "weights" / "epic_priors.npz"
+    priors_path = WEIGHTS / "epic_priors.npz"
     if not classifier.enabled:
         raise RuntimeError(
             f"AVION model could not be loaded from {checkpoint_path}"
@@ -255,13 +260,12 @@ def extract_avion_cache(
                 )
             )
             completed = min(start + len(batch_windows), len(windows))
-            if completed == len(windows) or completed % progress_step < batch_size:
+            if completed == len(windows) or completed % progress_step < len(batch_windows):
                 print(f"[AVION] {scale_tag}: {completed}/{len(windows)} windows", flush=True)
             del clips
         joint_logits = np.concatenate(logits_batches, axis=0)
         verb_probs, noun_probs = classifier.marginalize(joint_logits)
         cache[f"windows_{scale_tag}"] = windows
-        cache[f"joint_logits_{scale_tag}"] = joint_logits.astype(np.float32)
         cache[f"verb_logits_{scale_tag}"] = np.log(
             verb_probs.astype(np.float32) + 1e-8
         )
@@ -269,8 +273,7 @@ def extract_avion_cache(
             noun_probs.astype(np.float32) + 1e-8
         )
         print(
-            f"[AVION] {video_path.name}: {scale_tag} "
-            f"{len(windows)} windows extracted",
+            f"{video_path.name}: {scale_tag} {len(windows)} windows extracted",
             flush=True,
         )
         del joint_logits, verb_probs, noun_probs, logits_batches
@@ -293,7 +296,7 @@ def main() -> int:
     parser.add_argument(
         "--checkpoint",
         type=Path,
-        default=ROOT / "weights" / "avion" / "avion_finetune_cls_lavila_vitb_best.pt",
+        default=WEIGHTS / "avion" / "avion_finetune_cls_lavila_vitb_best.pt",
     )
     parser.add_argument("--batch-size", type=int, default=1)
     args = parser.parse_args()

@@ -1,4 +1,5 @@
 import json
+import math
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -36,11 +37,20 @@ def _is_two_decimals(val: float) -> bool:
     return abs(round(val, 2) - val) < 1e-6
 
 
+def _is_finite_number(value: Any) -> bool:
+    return (
+        isinstance(value, (int, float))
+        and not isinstance(value, bool)
+        and math.isfinite(float(value))
+    )
+
+
 def validate_output(
     data: Dict[str, Any],
     expected_video_id: Optional[str] = None,
     manifest_duration: Optional[float] = None,
     classes_path: Optional[Path] = None,
+    dataset: Optional[str] = None,
 ) -> Tuple[bool, List[str], List[str]]:
     errors: List[str] = []
     warnings: List[str] = []
@@ -53,6 +63,9 @@ def validate_output(
     if missing:
         errors.append(f"Missing keys: {sorted(missing)}")
         return False, errors, warnings
+    extra = set(data.keys()) - required
+    if extra:
+        errors.append(f"Unexpected keys: {sorted(extra)}")
 
     team_id = data.get("team_id")
     if not isinstance(team_id, str) or not team_id.strip():
@@ -65,12 +78,15 @@ def validate_output(
         errors.append(f"video_id '{video_id}' != expected '{expected_video_id}'.")
 
     dur = data.get("duration_sec")
-    if not isinstance(dur, (int, float)) or isinstance(dur, bool) or dur <= 0:
+    if not _is_finite_number(dur) or dur <= 0:
         errors.append("duration_sec must be a positive number.")
         return False, errors, warnings
     dur = float(dur)
-    if manifest_duration is not None and abs(dur - manifest_duration) > 0.5:
-        errors.append(f"duration_sec {dur} differs from manifest {manifest_duration} by > 0.5s.")
+    if manifest_duration is not None:
+        if not _is_finite_number(manifest_duration) or manifest_duration <= 0:
+            errors.append("manifest_duration must be a positive finite number.")
+        elif abs(dur - manifest_duration) > 0.5:
+            errors.append(f"duration_sec {dur} differs from manifest {manifest_duration} by > 0.5s.")
 
     vocab = load_supported_classes(classes_path)
     allowed_labels = vocab.get("labels") or vocab.get("categories") or DEFAULT_LABELS
@@ -85,8 +101,14 @@ def validate_output(
         lscore = label.get("score")
         if not isinstance(lname, str) or lname != lname.lower() or lname not in allowed_labels:
             errors.append(f"Invalid label.name: {lname!r}")
-        if not isinstance(lscore, (int, float)) or isinstance(lscore, bool) or not (0.0 <= float(lscore) <= 1.0):
+        if not _is_finite_number(lscore) or not (0.0 <= float(lscore) <= 1.0):
             errors.append(f"Invalid label.score: {lscore!r}")
+        if isinstance(lname, str):
+            dataset_name = (dataset or "").strip().lower()
+            if dataset_name in {"epic", "epic-kitchens-100", "epic_kitchens_100"} and lname != "cooking":
+                errors.append("EPIC-KITCHENS-100 videos must use label.name 'cooking'.")
+            elif dataset_name == "fpvsum" and lname == "cooking":
+                errors.append("FPVSum videos must use an FPVSum category or 'other', not 'cooking'.")
 
     actions = data.get("actions")
     if not isinstance(actions, list):
@@ -99,7 +121,7 @@ def validate_output(
                 errors.append(f"actions[{idx}] is not an object.")
                 continue
             seg = act.get("segment")
-            if not (isinstance(seg, list) and len(seg) == 2 and all(isinstance(x, (int, float)) for x in seg)):
+            if not (isinstance(seg, list) and len(seg) == 2 and all(_is_finite_number(x) for x in seg)):
                 errors.append(f"actions[{idx}].segment must be [start, end].")
                 continue
             s, e = float(seg[0]), float(seg[1])
@@ -112,7 +134,7 @@ def validate_output(
                 errors.append(f"actions[{idx}] invalid verb: {verb!r}")
             if not isinstance(noun, str) or (allowed_nouns and noun not in allowed_nouns):
                 errors.append(f"actions[{idx}] invalid noun: {noun!r}")
-            if not isinstance(score, (int, float)) or isinstance(score, bool) or not (0.0 <= float(score) <= 1.0):
+            if not _is_finite_number(score) or not (0.0 <= float(score) <= 1.0):
                 errors.append(f"actions[{idx}] invalid score: {score!r}")
 
     highlights = data.get("highlights")
@@ -127,7 +149,7 @@ def validate_output(
                 errors.append(f"highlights[{idx}] is not an object.")
                 continue
             seg = hl.get("segment")
-            if not (isinstance(seg, list) and len(seg) == 2 and all(isinstance(x, (int, float)) for x in seg)):
+            if not (isinstance(seg, list) and len(seg) == 2 and all(_is_finite_number(x) for x in seg)):
                 errors.append(f"highlights[{idx}].segment must be [start, end].")
                 continue
             s, e = float(seg[0]), float(seg[1])
