@@ -1,0 +1,36 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Jumping_IPRT9MZh3_s",
+  "duration_sec": 175.8,
+  "label": {
+    "name": "jumping",
+    "score": 0.3379
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        77.0,
+        84.0
+      ]
+    },
+    {
+      "segment": [
+        110.0,
+        116.0
+      ]
+    },
+    {
+      "segment": [
+        121.0,
+        128.0
+      ]
+    },
+    {
+      "segment": [
+        133.0,
+        138.0
+      ]
+    }
+  ]
+}
