@@ -1,0 +1,30 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Longboarding_Jec5YAjth6M",
+  "duration_sec": 247.87,
+  "label": {
+    "name": "other",
+    "score": 0.364
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        0.0,
+        5.0
+      ]
+    },
+    {
+      "segment": [
+        186.0,
+        212.0
+      ]
+    },
+    {
+      "segment": [
+        243.0,
+        247.87
+      ]
+    }
+  ]
+}
