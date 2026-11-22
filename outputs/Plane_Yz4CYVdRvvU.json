@@ -1,0 +1,30 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Plane_Yz4CYVdRvvU",
+  "duration_sec": 111.41,
+  "label": {
+    "name": "other",
+    "score": 0.4701
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        0.0,
+        5.0
+      ]
+    },
+    {
+      "segment": [
+        50.0,
+        56.0
+      ]
+    },
+    {
+      "segment": [
+        99.0,
+        104.0
+      ]
+    }
+  ]
+}
