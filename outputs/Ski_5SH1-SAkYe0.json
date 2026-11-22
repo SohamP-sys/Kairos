@@ -1,0 +1,18 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Ski_5SH1-SAkYe0",
+  "duration_sec": 119.63,
+  "label": {
+    "name": "ski",
+    "score": 0.4254
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        69.0,
+        86.0
+      ]
+    }
+  ]
+}
