@@ -1,0 +1,30 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Scuba__JnCVbCL5Wg",
+  "duration_sec": 194.63,
+  "label": {
+    "name": "scuba",
+    "score": 0.3902
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        57.0,
+        62.0
+      ]
+    },
+    {
+      "segment": [
+        122.0,
+        135.0
+      ]
+    },
+    {
+      "segment": [
+        145.0,
+        155.0
+      ]
+    }
+  ]
+}
