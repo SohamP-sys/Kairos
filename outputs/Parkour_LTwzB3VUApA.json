@@ -1,0 +1,24 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Parkour_LTwzB3VUApA",
+  "duration_sec": 110.74,
+  "label": {
+    "name": "other",
+    "score": 0.4501
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        21.0,
+        31.0
+      ]
+    },
+    {
+      "segment": [
+        58.0,
+        64.0
+      ]
+    }
+  ]
+}
