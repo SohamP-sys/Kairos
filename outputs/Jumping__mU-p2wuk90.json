@@ -1,0 +1,24 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Jumping__mU-p2wuk90",
+  "duration_sec": 131.75,
+  "label": {
+    "name": "other",
+    "score": 0.4377
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        5.0,
+        19.0
+      ]
+    },
+    {
+      "segment": [
+        84.0,
+        89.0
+      ]
+    }
+  ]
+}
