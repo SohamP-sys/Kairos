@@ -1,0 +1,36 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Horse_PEekyTcA8FU",
+  "duration_sec": 229.13,
+  "label": {
+    "name": "other",
+    "score": 0.4863
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        125.0,
+        130.0
+      ]
+    },
+    {
+      "segment": [
+        143.0,
+        148.0
+      ]
+    },
+    {
+      "segment": [
+        185.0,
+        203.0
+      ]
+    },
+    {
+      "segment": [
+        219.0,
+        224.0
+      ]
+    }
+  ]
+}
