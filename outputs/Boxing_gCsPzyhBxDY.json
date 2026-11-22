@@ -1,0 +1,30 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Boxing_gCsPzyhBxDY",
+  "duration_sec": 196.91,
+  "label": {
+    "name": "other",
+    "score": 0.4668
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        35.0,
+        40.0
+      ]
+    },
+    {
+      "segment": [
+        59.0,
+        64.0
+      ]
+    },
+    {
+      "segment": [
+        93.0,
+        98.0
+      ]
+    }
+  ]
+}
