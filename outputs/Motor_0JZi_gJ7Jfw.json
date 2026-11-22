@@ -1,0 +1,18 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Motor_0JZi_gJ7Jfw",
+  "duration_sec": 139.99,
+  "label": {
+    "name": "motor",
+    "score": 0.4356
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        31.0,
+        51.0
+      ]
+    }
+  ]
+}
