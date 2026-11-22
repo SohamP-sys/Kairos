@@ -1,0 +1,42 @@
+{
+  "team_id": "Kairos",
+  "video_id": "RockClimbing_mDUcIkDzpVI",
+  "duration_sec": 377.07,
+  "label": {
+    "name": "other",
+    "score": 0.4497
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        0.0,
+        5.0
+      ]
+    },
+    {
+      "segment": [
+        14.0,
+        20.0
+      ]
+    },
+    {
+      "segment": [
+        58.0,
+        68.0
+      ]
+    },
+    {
+      "segment": [
+        103.0,
+        116.0
+      ]
+    },
+    {
+      "segment": [
+        263.0,
+        269.0
+      ]
+    }
+  ]
+}
