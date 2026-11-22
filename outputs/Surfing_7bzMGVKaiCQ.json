@@ -1,0 +1,18 @@
+{
+  "team_id": "Kairos",
+  "video_id": "Surfing_7bzMGVKaiCQ",
+  "duration_sec": 68.94,
+  "label": {
+    "name": "surfing",
+    "score": 0.4386
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        47.0,
+        53.0
+      ]
+    }
+  ]
+}
