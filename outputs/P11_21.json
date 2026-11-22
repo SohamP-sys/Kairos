@@ -1,0 +1,1171 @@
+{
+  "team_id": "Kairos",
+  "video_id": "P11_21",
+  "duration_sec": 30.61,
+  "label": {
+    "name": "cooking",
+    "score": 1.0
+  },
+  "actions": [
+    {
+      "segment": [
+        25.75,
+        28.25
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.1835
+    },
+    {
+      "segment": [
+        14.35,
+        17.65
+      ],
+      "verb": "turn-on",
+      "noun": "oven",
+      "score": 0.0693
+    },
+    {
+      "segment": [
+        12.75,
+        15.25
+      ],
+      "verb": "insert",
+      "noun": "bag",
+      "score": 0.068
+    },
+    {
+      "segment": [
+        13.75,
+        16.25
+      ],
+      "verb": "close",
+      "noun": "oven",
+      "score": 0.0631
+    },
+    {
+      "segment": [
+        15.35,
+        18.65
+      ],
+      "verb": "turn-on",
+      "noun": "hob",
+      "score": 0.0509
+    },
+    {
+      "segment": [
+        11.75,
+        14.25
+      ],
+      "verb": "throw",
+      "noun": "package",
+      "score": 0.0405
+    },
+    {
+      "segment": [
+        13.35,
+        16.65
+      ],
+      "verb": "turn-off",
+      "noun": "oven",
+      "score": 0.0402
+    },
+    {
+      "segment": [
+        14.35,
+        17.65
+      ],
+      "verb": "open",
+      "noun": "oven",
+      "score": 0.0397
+    },
+    {
+      "segment": [
+        28.57,
+        30.61
+      ],
+      "verb": "turn-on",
+      "noun": "oven",
+      "score": 0.0361
+    },
+    {
+      "segment": [
+        26.75,
+        29.25
+      ],
+      "verb": "put",
+      "noun": "pot",
+      "score": 0.0338
+    },
+    {
+      "segment": [
+        12.75,
+        15.25
+      ],
+      "verb": "throw",
+      "noun": "bag",
+      "score": 0.0322
+    },
+    {
+      "segment": [
+        17.75,
+        20.25
+      ],
+      "verb": "take",
+      "noun": "knife",
+      "score": 0.0322
+    },
+    {
+      "segment": [
+        25.75,
+        28.25
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.0312
+    },
+    {
+      "segment": [
+        26.35,
+        29.65
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.0312
+    },
+    {
+      "segment": [
+        16.35,
+        19.65
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0293
+    },
+    {
+      "segment": [
+        14.35,
+        17.65
+      ],
+      "verb": "close",
+      "noun": "oven",
+      "score": 0.0293
+    },
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.0279
+    },
+    {
+      "segment": [
+        7.75,
+        10.25
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.025
+    },
+    {
+      "segment": [
+        17.75,
+        20.25
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.0248
+    },
+    {
+      "segment": [
+        5.75,
+        8.25
+      ],
+      "verb": "pour",
+      "noun": "broccoli",
+      "score": 0.0248
+    },
+    {
+      "segment": [
+        12.35,
+        15.65
+      ],
+      "verb": "close",
+      "noun": "oven",
+      "score": 0.0242
+    },
+    {
+      "segment": [
+        23.75,
+        26.25
+      ],
+      "verb": "mix",
+      "noun": "kale",
+      "score": 0.0241
+    },
+    {
+      "segment": [
+        28.57,
+        30.61
+      ],
+      "verb": "check",
+      "noun": "oven",
+      "score": 0.0234
+    },
+    {
+      "segment": [
+        26.75,
+        29.25
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.0225
+    },
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.0223
+    },
+    {
+      "segment": [
+        12.75,
+        15.25
+      ],
+      "verb": "put",
+      "noun": "bag",
+      "score": 0.0221
+    },
+    {
+      "segment": [
+        2.35,
+        5.65
+      ],
+      "verb": "pour",
+      "noun": "kale",
+      "score": 0.0219
+    },
+    {
+      "segment": [
+        17.75,
+        20.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0207
+    },
+    {
+      "segment": [
+        26.75,
+        29.25
+      ],
+      "verb": "wrap",
+      "noun": "lid",
+      "score": 0.0193
+    },
+    {
+      "segment": [
+        28.57,
+        30.61
+      ],
+      "verb": "check",
+      "noun": "alarm",
+      "score": 0.0192
+    },
+    {
+      "segment": [
+        5.35,
+        8.65
+      ],
+      "verb": "pour",
+      "noun": "kale",
+      "score": 0.019
+    },
+    {
+      "segment": [
+        15.35,
+        18.65
+      ],
+      "verb": "take",
+      "noun": "hob",
+      "score": 0.0186
+    },
+    {
+      "segment": [
+        28.57,
+        30.61
+      ],
+      "verb": "turn-on",
+      "noun": "hob",
+      "score": 0.0181
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "throw",
+      "noun": "package",
+      "score": 0.018
+    },
+    {
+      "segment": [
+        16.75,
+        19.25
+      ],
+      "verb": "turn-on",
+      "noun": "hob",
+      "score": 0.0177
+    },
+    {
+      "segment": [
+        12.75,
+        15.25
+      ],
+      "verb": "insert",
+      "noun": "package",
+      "score": 0.0176
+    },
+    {
+      "segment": [
+        5.75,
+        8.25
+      ],
+      "verb": "insert",
+      "noun": "broccoli",
+      "score": 0.0176
+    },
+    {
+      "segment": [
+        14.75,
+        17.25
+      ],
+      "verb": "turn-off",
+      "noun": "oven",
+      "score": 0.0175
+    },
+    {
+      "segment": [
+        8.75,
+        11.25
+      ],
+      "verb": "take",
+      "noun": "broccoli",
+      "score": 0.0173
+    },
+    {
+      "segment": [
+        12.75,
+        15.25
+      ],
+      "verb": "insert",
+      "noun": "bottle",
+      "score": 0.0172
+    },
+    {
+      "segment": [
+        15.75,
+        18.25
+      ],
+      "verb": "put",
+      "noun": "lid",
+      "score": 0.017
+    },
+    {
+      "segment": [
+        26.75,
+        29.25
+      ],
+      "verb": "move",
+      "noun": "lid",
+      "score": 0.0169
+    },
+    {
+      "segment": [
+        24.75,
+        27.25
+      ],
+      "verb": "take",
+      "noun": "knife",
+      "score": 0.0169
+    },
+    {
+      "segment": [
+        12.35,
+        15.65
+      ],
+      "verb": "turn-off",
+      "noun": "hob",
+      "score": 0.0161
+    },
+    {
+      "segment": [
+        14.75,
+        17.25
+      ],
+      "verb": "turn-off",
+      "noun": "alarm",
+      "score": 0.0157
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "take",
+      "noun": "kale",
+      "score": 0.0156
+    },
+    {
+      "segment": [
+        3.35,
+        6.65
+      ],
+      "verb": "pour",
+      "noun": "broccoli",
+      "score": 0.0155
+    },
+    {
+      "segment": [
+        7.35,
+        10.65
+      ],
+      "verb": "pour",
+      "noun": "broccoli",
+      "score": 0.0152
+    },
+    {
+      "segment": [
+        16.75,
+        19.25
+      ],
+      "verb": "put",
+      "noun": "hob",
+      "score": 0.0149
+    },
+    {
+      "segment": [
+        25.35,
+        28.65
+      ],
+      "verb": "insert",
+      "noun": "lid",
+      "score": 0.0148
+    },
+    {
+      "segment": [
+        9.35,
+        12.65
+      ],
+      "verb": "pour",
+      "noun": "kale",
+      "score": 0.0147
+    },
+    {
+      "segment": [
+        17.75,
+        20.25
+      ],
+      "verb": "take",
+      "noun": "lid",
+      "score": 0.014
+    },
+    {
+      "segment": [
+        15.75,
+        18.25
+      ],
+      "verb": "open",
+      "noun": "oven",
+      "score": 0.014
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "pour",
+      "noun": "kale",
+      "score": 0.0138
+    },
+    {
+      "segment": [
+        7.35,
+        10.65
+      ],
+      "verb": "insert",
+      "noun": "broccoli",
+      "score": 0.0137
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "take",
+      "noun": "salad",
+      "score": 0.0137
+    },
+    {
+      "segment": [
+        16.35,
+        19.65
+      ],
+      "verb": "take",
+      "noun": "pot",
+      "score": 0.0136
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "mix",
+      "noun": "kale",
+      "score": 0.0134
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "mix",
+      "noun": "broccoli",
+      "score": 0.0134
+    },
+    {
+      "segment": [
+        26.35,
+        29.65
+      ],
+      "verb": "put",
+      "noun": "hob",
+      "score": 0.0133
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "throw",
+      "noun": "bag",
+      "score": 0.0131
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "take",
+      "noun": "package",
+      "score": 0.0131
+    },
+    {
+      "segment": [
+        28.57,
+        30.61
+      ],
+      "verb": "turn-on",
+      "noun": "alarm",
+      "score": 0.0129
+    },
+    {
+      "segment": [
+        15.75,
+        18.25
+      ],
+      "verb": "open",
+      "noun": "lid",
+      "score": 0.0128
+    },
+    {
+      "segment": [
+        22.75,
+        25.25
+      ],
+      "verb": "insert",
+      "noun": "broccoli",
+      "score": 0.0127
+    },
+    {
+      "segment": [
+        17.35,
+        20.65
+      ],
+      "verb": "pour",
+      "noun": "oil",
+      "score": 0.0125
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "insert",
+      "noun": "package",
+      "score": 0.0123
+    },
+    {
+      "segment": [
+        19.75,
+        22.25
+      ],
+      "verb": "mix",
+      "noun": "kale",
+      "score": 0.012
+    },
+    {
+      "segment": [
+        5.75,
+        8.25
+      ],
+      "verb": "put",
+      "noun": "broccoli",
+      "score": 0.0116
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "take",
+      "noun": "spinach",
+      "score": 0.0115
+    },
+    {
+      "segment": [
+        9.35,
+        12.65
+      ],
+      "verb": "take",
+      "noun": "kale",
+      "score": 0.0112
+    },
+    {
+      "segment": [
+        11.35,
+        14.65
+      ],
+      "verb": "put",
+      "noun": "package",
+      "score": 0.0111
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "insert",
+      "noun": "kale",
+      "score": 0.011
+    },
+    {
+      "segment": [
+        12.35,
+        15.65
+      ],
+      "verb": "put",
+      "noun": "oven",
+      "score": 0.011
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "pour",
+      "noun": "broccoli",
+      "score": 0.0109
+    },
+    {
+      "segment": [
+        18.35,
+        21.65
+      ],
+      "verb": "pour",
+      "noun": "kale",
+      "score": 0.0109
+    },
+    {
+      "segment": [
+        19.75,
+        22.25
+      ],
+      "verb": "mix",
+      "noun": "broccoli",
+      "score": 0.0104
+    },
+    {
+      "segment": [
+        16.75,
+        19.25
+      ],
+      "verb": "take",
+      "noun": "hob",
+      "score": 0.0102
+    },
+    {
+      "segment": [
+        15.35,
+        18.65
+      ],
+      "verb": "take",
+      "noun": "knife",
+      "score": 0.0097
+    },
+    {
+      "segment": [
+        1.35,
+        4.65
+      ],
+      "verb": "pour",
+      "noun": "leek",
+      "score": 0.0097
+    },
+    {
+      "segment": [
+        3.35,
+        6.65
+      ],
+      "verb": "insert",
+      "noun": "kale",
+      "score": 0.0097
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "pour",
+      "noun": "broccoli",
+      "score": 0.0095
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.0094
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "pour",
+      "noun": "kale",
+      "score": 0.0093
+    },
+    {
+      "segment": [
+        7.35,
+        10.65
+      ],
+      "verb": "insert",
+      "noun": "kale",
+      "score": 0.0091
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "take",
+      "noun": "pan",
+      "score": 0.0089
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "throw",
+      "noun": "kale",
+      "score": 0.0089
+    },
+    {
+      "segment": [
+        25.35,
+        28.65
+      ],
+      "verb": "insert",
+      "noun": "pot",
+      "score": 0.0089
+    },
+    {
+      "segment": [
+        27.75,
+        30.25
+      ],
+      "verb": "take",
+      "noun": "pot",
+      "score": 0.0088
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "pour",
+      "noun": "kale",
+      "score": 0.0086
+    },
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "pour",
+      "noun": "lid",
+      "score": 0.0085
+    },
+    {
+      "segment": [
+        19.75,
+        22.25
+      ],
+      "verb": "insert",
+      "noun": "knife",
+      "score": 0.0083
+    },
+    {
+      "segment": [
+        4.35,
+        7.65
+      ],
+      "verb": "insert",
+      "noun": "broccoli",
+      "score": 0.008
+    },
+    {
+      "segment": [
+        13.75,
+        16.25
+      ],
+      "verb": "close",
+      "noun": "alarm",
+      "score": 0.0079
+    },
+    {
+      "segment": [
+        14.75,
+        17.25
+      ],
+      "verb": "turn-on",
+      "noun": "oven",
+      "score": 0.0078
+    },
+    {
+      "segment": [
+        8.75,
+        11.25
+      ],
+      "verb": "pour",
+      "noun": "broccoli",
+      "score": 0.0078
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "move",
+      "noun": "kale",
+      "score": 0.0077
+    },
+    {
+      "segment": [
+        23.35,
+        26.65
+      ],
+      "verb": "mix",
+      "noun": "leek",
+      "score": 0.0077
+    },
+    {
+      "segment": [
+        15.35,
+        18.65
+      ],
+      "verb": "put",
+      "noun": "hob",
+      "score": 0.0076
+    },
+    {
+      "segment": [
+        24.75,
+        27.25
+      ],
+      "verb": "pour",
+      "noun": "leek",
+      "score": 0.0072
+    },
+    {
+      "segment": [
+        17.35,
+        20.65
+      ],
+      "verb": "insert",
+      "noun": "oil",
+      "score": 0.0071
+    },
+    {
+      "segment": [
+        14.35,
+        17.65
+      ],
+      "verb": "turn-on",
+      "noun": "alarm",
+      "score": 0.007
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "mix",
+      "noun": "kale",
+      "score": 0.0069
+    },
+    {
+      "segment": [
+        21.35,
+        24.65
+      ],
+      "verb": "insert",
+      "noun": "broccoli",
+      "score": 0.0069
+    },
+    {
+      "segment": [
+        9.35,
+        12.65
+      ],
+      "verb": "take",
+      "noun": "broccoli",
+      "score": 0.0068
+    },
+    {
+      "segment": [
+        2.75,
+        5.25
+      ],
+      "verb": "pour",
+      "noun": "salad",
+      "score": 0.0068
+    },
+    {
+      "segment": [
+        23.75,
+        26.25
+      ],
+      "verb": "mix",
+      "noun": "broccoli",
+      "score": 0.0067
+    },
+    {
+      "segment": [
+        24.35,
+        27.65
+      ],
+      "verb": "pour",
+      "noun": "pot",
+      "score": 0.0067
+    },
+    {
+      "segment": [
+        25.35,
+        28.65
+      ],
+      "verb": "pour",
+      "noun": "lid",
+      "score": 0.0067
+    },
+    {
+      "segment": [
+        23.75,
+        26.25
+      ],
+      "verb": "pour",
+      "noun": "kale",
+      "score": 0.0067
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "pour",
+      "noun": "kale",
+      "score": 0.0062
+    },
+    {
+      "segment": [
+        26.35,
+        29.65
+      ],
+      "verb": "put",
+      "noun": "pot",
+      "score": 0.0061
+    },
+    {
+      "segment": [
+        13.75,
+        16.25
+      ],
+      "verb": "turn-off",
+      "noun": "hob",
+      "score": 0.0061
+    },
+    {
+      "segment": [
+        24.75,
+        27.25
+      ],
+      "verb": "pour",
+      "noun": "knife",
+      "score": 0.0061
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "pour",
+      "noun": "broccoli",
+      "score": 0.006
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "move",
+      "noun": "salad",
+      "score": 0.0059
+    },
+    {
+      "segment": [
+        10.75,
+        13.25
+      ],
+      "verb": "pour",
+      "noun": "kale",
+      "score": 0.0058
+    },
+    {
+      "segment": [
+        13.75,
+        16.25
+      ],
+      "verb": "put",
+      "noun": "oven",
+      "score": 0.0056
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "mix",
+      "noun": "broccoli",
+      "score": 0.0056
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "take",
+      "noun": "kale",
+      "score": 0.0055
+    },
+    {
+      "segment": [
+        10.75,
+        13.25
+      ],
+      "verb": "take",
+      "noun": "kale",
+      "score": 0.0055
+    },
+    {
+      "segment": [
+        11.35,
+        14.65
+      ],
+      "verb": "put",
+      "noun": "bag",
+      "score": 0.0054
+    },
+    {
+      "segment": [
+        5.35,
+        8.65
+      ],
+      "verb": "pour",
+      "noun": "broccoli",
+      "score": 0.0035
+    },
+    {
+      "segment": [
+        26.35,
+        29.65
+      ],
+      "verb": "move",
+      "noun": "lid",
+      "score": 0.0034
+    },
+    {
+      "segment": [
+        25.75,
+        28.25
+      ],
+      "verb": "insert",
+      "noun": "lid",
+      "score": 0.0034
+    },
+    {
+      "segment": [
+        10.75,
+        13.25
+      ],
+      "verb": "take",
+      "noun": "package",
+      "score": 0.0027
+    },
+    {
+      "segment": [
+        5.35,
+        8.65
+      ],
+      "verb": "put",
+      "noun": "broccoli",
+      "score": 0.0024
+    },
+    {
+      "segment": [
+        22.75,
+        25.25
+      ],
+      "verb": "insert",
+      "noun": "kale",
+      "score": 0.0023
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        13.0,
+        17.05
+      ]
+    }
+  ]
+}
