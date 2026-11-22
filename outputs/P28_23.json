@@ -1,0 +1,847 @@
+{
+  "team_id": "Kairos",
+  "video_id": "P28_23",
+  "duration_sec": 25.16,
+  "label": {
+    "name": "cooking",
+    "score": 1.0
+  },
+  "actions": [
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "take",
+      "noun": "plate",
+      "score": 0.1805
+    },
+    {
+      "segment": [
+        5.75,
+        8.25
+      ],
+      "verb": "put",
+      "noun": "plate",
+      "score": 0.1401
+    },
+    {
+      "segment": [
+        22.75,
+        25.16
+      ],
+      "verb": "close",
+      "noun": "cupboard",
+      "score": 0.1065
+    },
+    {
+      "segment": [
+        3.75,
+        6.25
+      ],
+      "verb": "open",
+      "noun": "oven",
+      "score": 0.0992
+    },
+    {
+      "segment": [
+        4.75,
+        7.25
+      ],
+      "verb": "insert",
+      "noun": "plate",
+      "score": 0.0759
+    },
+    {
+      "segment": [
+        7.75,
+        10.25
+      ],
+      "verb": "close",
+      "noun": "microwave",
+      "score": 0.0588
+    },
+    {
+      "segment": [
+        3.75,
+        6.25
+      ],
+      "verb": "open",
+      "noun": "microwave",
+      "score": 0.0575
+    },
+    {
+      "segment": [
+        15.75,
+        18.25
+      ],
+      "verb": "set",
+      "noun": "alarm",
+      "score": 0.0468
+    },
+    {
+      "segment": [
+        3.35,
+        6.65
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.0447
+    },
+    {
+      "segment": [
+        7.75,
+        10.25
+      ],
+      "verb": "close",
+      "noun": "oven",
+      "score": 0.044
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "put",
+      "noun": "plate",
+      "score": 0.0417
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "take",
+      "noun": "plate",
+      "score": 0.0405
+    },
+    {
+      "segment": [
+        3.35,
+        6.65
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.0393
+    },
+    {
+      "segment": [
+        19.35,
+        22.65
+      ],
+      "verb": "turn-on",
+      "noun": "oven",
+      "score": 0.0382
+    },
+    {
+      "segment": [
+        5.75,
+        8.25
+      ],
+      "verb": "take",
+      "noun": "plate",
+      "score": 0.0376
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "wash",
+      "noun": "plate",
+      "score": 0.0355
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "take",
+      "noun": "pan",
+      "score": 0.0339
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "turn-on",
+      "noun": "microwave",
+      "score": 0.0296
+    },
+    {
+      "segment": [
+        21.94,
+        25.16
+      ],
+      "verb": "take",
+      "noun": "container",
+      "score": 0.0295
+    },
+    {
+      "segment": [
+        8.35,
+        11.65
+      ],
+      "verb": "turn-on",
+      "noun": "oven",
+      "score": 0.0294
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "put",
+      "noun": "fork",
+      "score": 0.0257
+    },
+    {
+      "segment": [
+        7.35,
+        10.65
+      ],
+      "verb": "turn-on",
+      "noun": "microwave",
+      "score": 0.0252
+    },
+    {
+      "segment": [
+        23.34,
+        25.16
+      ],
+      "verb": "take",
+      "noun": "bottle",
+      "score": 0.0249
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "turn-on",
+      "noun": "microwave",
+      "score": 0.0244
+    },
+    {
+      "segment": [
+        21.35,
+        24.65
+      ],
+      "verb": "take",
+      "noun": "glove",
+      "score": 0.0243
+    },
+    {
+      "segment": [
+        16.75,
+        19.25
+      ],
+      "verb": "set",
+      "noun": "microwave",
+      "score": 0.0242
+    },
+    {
+      "segment": [
+        23.34,
+        25.16
+      ],
+      "verb": "put",
+      "noun": "bottle",
+      "score": 0.0235
+    },
+    {
+      "segment": [
+        5.35,
+        8.65
+      ],
+      "verb": "put",
+      "noun": "plate",
+      "score": 0.0231
+    },
+    {
+      "segment": [
+        20.75,
+        23.25
+      ],
+      "verb": "check",
+      "noun": "oven",
+      "score": 0.0227
+    },
+    {
+      "segment": [
+        19.75,
+        22.25
+      ],
+      "verb": "turn-off",
+      "noun": "oven",
+      "score": 0.0224
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "put",
+      "noun": "plate",
+      "score": 0.022
+    },
+    {
+      "segment": [
+        19.35,
+        22.65
+      ],
+      "verb": "adjust",
+      "noun": "oven",
+      "score": 0.022
+    },
+    {
+      "segment": [
+        11.75,
+        14.25
+      ],
+      "verb": "set",
+      "noun": "microwave",
+      "score": 0.0219
+    },
+    {
+      "segment": [
+        10.75,
+        13.25
+      ],
+      "verb": "turn-on",
+      "noun": "oven",
+      "score": 0.0214
+    },
+    {
+      "segment": [
+        4.75,
+        7.25
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.0211
+    },
+    {
+      "segment": [
+        2.35,
+        5.65
+      ],
+      "verb": "open",
+      "noun": "oven",
+      "score": 0.021
+    },
+    {
+      "segment": [
+        9.75,
+        12.25
+      ],
+      "verb": "set",
+      "noun": "alarm",
+      "score": 0.0206
+    },
+    {
+      "segment": [
+        20.35,
+        23.65
+      ],
+      "verb": "turn-on",
+      "noun": "toaster",
+      "score": 0.0205
+    },
+    {
+      "segment": [
+        23.34,
+        25.16
+      ],
+      "verb": "put",
+      "noun": "container",
+      "score": 0.0203
+    },
+    {
+      "segment": [
+        23.34,
+        25.16
+      ],
+      "verb": "close",
+      "noun": "drawer",
+      "score": 0.0202
+    },
+    {
+      "segment": [
+        4.75,
+        7.25
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.0188
+    },
+    {
+      "segment": [
+        14.75,
+        17.25
+      ],
+      "verb": "set",
+      "noun": "oven",
+      "score": 0.0185
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "take",
+      "noun": "fork",
+      "score": 0.0185
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "turn-on",
+      "noun": "oven",
+      "score": 0.0182
+    },
+    {
+      "segment": [
+        18.35,
+        21.65
+      ],
+      "verb": "adjust",
+      "noun": "heat",
+      "score": 0.0181
+    },
+    {
+      "segment": [
+        5.75,
+        8.25
+      ],
+      "verb": "put",
+      "noun": "spoon",
+      "score": 0.0178
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "wash",
+      "noun": "plate",
+      "score": 0.0177
+    },
+    {
+      "segment": [
+        13.75,
+        16.25
+      ],
+      "verb": "turn-on",
+      "noun": "oven",
+      "score": 0.0166
+    },
+    {
+      "segment": [
+        9.75,
+        12.25
+      ],
+      "verb": "adjust",
+      "noun": "oven",
+      "score": 0.0162
+    },
+    {
+      "segment": [
+        20.75,
+        23.25
+      ],
+      "verb": "check",
+      "noun": "alarm",
+      "score": 0.0161
+    },
+    {
+      "segment": [
+        4.35,
+        7.65
+      ],
+      "verb": "insert",
+      "noun": "plate",
+      "score": 0.0157
+    },
+    {
+      "segment": [
+        2.35,
+        5.65
+      ],
+      "verb": "open",
+      "noun": "plate",
+      "score": 0.0152
+    },
+    {
+      "segment": [
+        13.75,
+        16.25
+      ],
+      "verb": "adjust",
+      "noun": "oven",
+      "score": 0.0152
+    },
+    {
+      "segment": [
+        17.35,
+        20.65
+      ],
+      "verb": "turn-on",
+      "noun": "microwave",
+      "score": 0.0144
+    },
+    {
+      "segment": [
+        22.75,
+        25.16
+      ],
+      "verb": "take",
+      "noun": "cupboard",
+      "score": 0.0136
+    },
+    {
+      "segment": [
+        8.35,
+        11.65
+      ],
+      "verb": "close",
+      "noun": "oven",
+      "score": 0.0134
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "take",
+      "noun": "pan",
+      "score": 0.0124
+    },
+    {
+      "segment": [
+        21.35,
+        24.65
+      ],
+      "verb": "put",
+      "noun": "glove",
+      "score": 0.0121
+    },
+    {
+      "segment": [
+        19.35,
+        22.65
+      ],
+      "verb": "turn-on",
+      "noun": "microwave",
+      "score": 0.0121
+    },
+    {
+      "segment": [
+        15.35,
+        18.65
+      ],
+      "verb": "set",
+      "noun": "microwave",
+      "score": 0.0119
+    },
+    {
+      "segment": [
+        18.35,
+        21.65
+      ],
+      "verb": "turn-off",
+      "noun": "oven",
+      "score": 0.0116
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "adjust",
+      "noun": "oven",
+      "score": 0.0115
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "turn-off",
+      "noun": "microwave",
+      "score": 0.0115
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "take",
+      "noun": "bread",
+      "score": 0.0115
+    },
+    {
+      "segment": [
+        21.94,
+        25.16
+      ],
+      "verb": "close",
+      "noun": "container",
+      "score": 0.0114
+    },
+    {
+      "segment": [
+        19.35,
+        22.65
+      ],
+      "verb": "turn-on",
+      "noun": "alarm",
+      "score": 0.0113
+    },
+    {
+      "segment": [
+        15.35,
+        18.65
+      ],
+      "verb": "set",
+      "noun": "alarm",
+      "score": 0.0109
+    },
+    {
+      "segment": [
+        22.75,
+        25.16
+      ],
+      "verb": "put",
+      "noun": "cupboard",
+      "score": 0.0108
+    },
+    {
+      "segment": [
+        2.35,
+        5.65
+      ],
+      "verb": "open",
+      "noun": "microwave",
+      "score": 0.0108
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "insert",
+      "noun": "bread",
+      "score": 0.0104
+    },
+    {
+      "segment": [
+        3.75,
+        6.25
+      ],
+      "verb": "take",
+      "noun": "oven",
+      "score": 0.0098
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "remove",
+      "noun": "plate",
+      "score": 0.0097
+    },
+    {
+      "segment": [
+        21.35,
+        24.65
+      ],
+      "verb": "take",
+      "noun": "oven",
+      "score": 0.0095
+    },
+    {
+      "segment": [
+        2.75,
+        5.25
+      ],
+      "verb": "put",
+      "noun": "oven",
+      "score": 0.009
+    },
+    {
+      "segment": [
+        5.35,
+        8.65
+      ],
+      "verb": "take",
+      "noun": "plate",
+      "score": 0.0089
+    },
+    {
+      "segment": [
+        19.75,
+        22.25
+      ],
+      "verb": "turn-off",
+      "noun": "alarm",
+      "score": 0.0089
+    },
+    {
+      "segment": [
+        3.75,
+        6.25
+      ],
+      "verb": "open",
+      "noun": "plate",
+      "score": 0.0076
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "take",
+      "noun": "container",
+      "score": 0.0076
+    },
+    {
+      "segment": [
+        6.35,
+        9.65
+      ],
+      "verb": "put",
+      "noun": "microwave",
+      "score": 0.0076
+    },
+    {
+      "segment": [
+        5.75,
+        8.25
+      ],
+      "verb": "insert",
+      "noun": "spoon",
+      "score": 0.0075
+    },
+    {
+      "segment": [
+        6.35,
+        9.65
+      ],
+      "verb": "insert",
+      "noun": "microwave",
+      "score": 0.0071
+    },
+    {
+      "segment": [
+        21.94,
+        25.16
+      ],
+      "verb": "put",
+      "noun": "container",
+      "score": 0.0059
+    },
+    {
+      "segment": [
+        8.75,
+        11.25
+      ],
+      "verb": "turn-on",
+      "noun": "alarm",
+      "score": 0.0058
+    },
+    {
+      "segment": [
+        10.75,
+        13.25
+      ],
+      "verb": "turn-on",
+      "noun": "microwave",
+      "score": 0.0058
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.0057
+    },
+    {
+      "segment": [
+        11.35,
+        14.65
+      ],
+      "verb": "set",
+      "noun": "microwave",
+      "score": 0.0051
+    },
+    {
+      "segment": [
+        7.75,
+        10.25
+      ],
+      "verb": "turn-on",
+      "noun": "microwave",
+      "score": 0.0049
+    },
+    {
+      "segment": [
+        20.75,
+        23.25
+      ],
+      "verb": "put",
+      "noun": "glove",
+      "score": 0.0047
+    },
+    {
+      "segment": [
+        14.35,
+        17.65
+      ],
+      "verb": "set",
+      "noun": "oven",
+      "score": 0.0042
+    },
+    {
+      "segment": [
+        7.35,
+        10.65
+      ],
+      "verb": "close",
+      "noun": "microwave",
+      "score": 0.004
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "take",
+      "noun": "glove",
+      "score": 0.0036
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "take",
+      "noun": "oven",
+      "score": 0.0021
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        0.0,
+        4.05
+      ]
+    }
+  ]
+}
