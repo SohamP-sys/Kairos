@@ -1,0 +1,2671 @@
+{
+  "team_id": "Kairos",
+  "video_id": "P28_19",
+  "duration_sec": 89.92,
+  "label": {
+    "name": "cooking",
+    "score": 1.0
+  },
+  "actions": [
+    {
+      "segment": [
+        21.35,
+        24.65
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.1823
+    },
+    {
+      "segment": [
+        59.75,
+        62.25
+      ],
+      "verb": "turn-on",
+      "noun": "hob",
+      "score": 0.1646
+    },
+    {
+      "segment": [
+        81.75,
+        84.25
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.1598
+    },
+    {
+      "segment": [
+        40.75,
+        43.25
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.1547
+    },
+    {
+      "segment": [
+        77.35,
+        80.65
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.1537
+    },
+    {
+      "segment": [
+        61.75,
+        64.25
+      ],
+      "verb": "adjust",
+      "noun": "oven",
+      "score": 0.1465
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "take",
+      "noun": "knife",
+      "score": 0.1463
+    },
+    {
+      "segment": [
+        46.75,
+        49.25
+      ],
+      "verb": "pour",
+      "noun": "oil",
+      "score": 0.1369
+    },
+    {
+      "segment": [
+        54.35,
+        57.65
+      ],
+      "verb": "look",
+      "noun": "recipe",
+      "score": 0.1342
+    },
+    {
+      "segment": [
+        42.75,
+        45.25
+      ],
+      "verb": "take",
+      "noun": "oil",
+      "score": 0.1321
+    },
+    {
+      "segment": [
+        27.35,
+        30.65
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.1196
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.1107
+    },
+    {
+      "segment": [
+        80.75,
+        83.25
+      ],
+      "verb": "take",
+      "noun": "pan",
+      "score": 0.1043
+    },
+    {
+      "segment": [
+        50.75,
+        53.25
+      ],
+      "verb": "put",
+      "noun": "oil",
+      "score": 0.0963
+    },
+    {
+      "segment": [
+        41.75,
+        44.25
+      ],
+      "verb": "take",
+      "noun": "knife",
+      "score": 0.0943
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0844
+    },
+    {
+      "segment": [
+        37.35,
+        40.65
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0828
+    },
+    {
+      "segment": [
+        69.35,
+        72.65
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.0777
+    },
+    {
+      "segment": [
+        2.75,
+        5.25
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.0748
+    },
+    {
+      "segment": [
+        60.75,
+        63.25
+      ],
+      "verb": "adjust",
+      "noun": "hob",
+      "score": 0.0741
+    },
+    {
+      "segment": [
+        47.35,
+        50.65
+      ],
+      "verb": "pour",
+      "noun": "oil",
+      "score": 0.071
+    },
+    {
+      "segment": [
+        8.75,
+        11.25
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.07
+    },
+    {
+      "segment": [
+        35.75,
+        38.25
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0694
+    },
+    {
+      "segment": [
+        10.75,
+        13.25
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0683
+    },
+    {
+      "segment": [
+        14.75,
+        17.25
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0676
+    },
+    {
+      "segment": [
+        41.35,
+        44.65
+      ],
+      "verb": "take",
+      "noun": "oil",
+      "score": 0.0671
+    },
+    {
+      "segment": [
+        62.35,
+        65.65
+      ],
+      "verb": "adjust",
+      "noun": "oven",
+      "score": 0.066
+    },
+    {
+      "segment": [
+        85.75,
+        88.25
+      ],
+      "verb": "check",
+      "noun": "heat",
+      "score": 0.0658
+    },
+    {
+      "segment": [
+        4.35,
+        7.65
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.0655
+    },
+    {
+      "segment": [
+        35.35,
+        38.65
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.0642
+    },
+    {
+      "segment": [
+        41.75,
+        44.25
+      ],
+      "verb": "put",
+      "noun": "oil",
+      "score": 0.0635
+    },
+    {
+      "segment": [
+        28.75,
+        31.25
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0633
+    },
+    {
+      "segment": [
+        25.75,
+        28.25
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.0629
+    },
+    {
+      "segment": [
+        76.75,
+        79.25
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.0625
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0612
+    },
+    {
+      "segment": [
+        8.75,
+        11.25
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0608
+    },
+    {
+      "segment": [
+        45.75,
+        48.25
+      ],
+      "verb": "insert",
+      "noun": "oil",
+      "score": 0.0607
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.0585
+    },
+    {
+      "segment": [
+        33.75,
+        36.25
+      ],
+      "verb": "cut",
+      "noun": "chilli",
+      "score": 0.0582
+    },
+    {
+      "segment": [
+        80.35,
+        83.65
+      ],
+      "verb": "move",
+      "noun": "pan",
+      "score": 0.0579
+    },
+    {
+      "segment": [
+        69.75,
+        72.25
+      ],
+      "verb": "take",
+      "noun": "pan",
+      "score": 0.0578
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0563
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0563
+    },
+    {
+      "segment": [
+        60.35,
+        63.65
+      ],
+      "verb": "turn-on",
+      "noun": "oven",
+      "score": 0.0561
+    },
+    {
+      "segment": [
+        44.75,
+        47.25
+      ],
+      "verb": "open",
+      "noun": "oil",
+      "score": 0.0556
+    },
+    {
+      "segment": [
+        53.75,
+        56.25
+      ],
+      "verb": "look",
+      "noun": "recipe",
+      "score": 0.0555
+    },
+    {
+      "segment": [
+        38.35,
+        41.65
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0554
+    },
+    {
+      "segment": [
+        29.75,
+        32.25
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0547
+    },
+    {
+      "segment": [
+        37.75,
+        40.25
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.0546
+    },
+    {
+      "segment": [
+        43.35,
+        46.65
+      ],
+      "verb": "close",
+      "noun": "oil",
+      "score": 0.0536
+    },
+    {
+      "segment": [
+        69.75,
+        72.25
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.0531
+    },
+    {
+      "segment": [
+        17.35,
+        20.65
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.0531
+    },
+    {
+      "segment": [
+        7.75,
+        10.25
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.052
+    },
+    {
+      "segment": [
+        13.35,
+        16.65
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.0519
+    },
+    {
+      "segment": [
+        19.75,
+        22.25
+      ],
+      "verb": "take",
+      "noun": "carrot",
+      "score": 0.0516
+    },
+    {
+      "segment": [
+        17.35,
+        20.65
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0515
+    },
+    {
+      "segment": [
+        22.75,
+        25.25
+      ],
+      "verb": "cut",
+      "noun": "tomato",
+      "score": 0.0514
+    },
+    {
+      "segment": [
+        68.75,
+        71.25
+      ],
+      "verb": "adjust",
+      "noun": "oven",
+      "score": 0.051
+    },
+    {
+      "segment": [
+        48.35,
+        51.65
+      ],
+      "verb": "insert",
+      "noun": "oil",
+      "score": 0.0501
+    },
+    {
+      "segment": [
+        80.35,
+        83.65
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.0485
+    },
+    {
+      "segment": [
+        14.35,
+        17.65
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0472
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "cut",
+      "noun": "tomato",
+      "score": 0.0465
+    },
+    {
+      "segment": [
+        40.35,
+        43.65
+      ],
+      "verb": "take",
+      "noun": "knife",
+      "score": 0.0464
+    },
+    {
+      "segment": [
+        50.35,
+        53.65
+      ],
+      "verb": "take",
+      "noun": "oil",
+      "score": 0.0462
+    },
+    {
+      "segment": [
+        15.75,
+        18.25
+      ],
+      "verb": "cut",
+      "noun": "tomato",
+      "score": 0.046
+    },
+    {
+      "segment": [
+        19.75,
+        22.25
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0458
+    },
+    {
+      "segment": [
+        20.75,
+        23.25
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0444
+    },
+    {
+      "segment": [
+        10.75,
+        13.25
+      ],
+      "verb": "cut",
+      "noun": "tomato",
+      "score": 0.0441
+    },
+    {
+      "segment": [
+        38.75,
+        41.25
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0437
+    },
+    {
+      "segment": [
+        80.75,
+        83.25
+      ],
+      "verb": "take",
+      "noun": "spoon",
+      "score": 0.0418
+    },
+    {
+      "segment": [
+        51.75,
+        54.25
+      ],
+      "verb": "take",
+      "noun": "cheese",
+      "score": 0.0416
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0414
+    },
+    {
+      "segment": [
+        12.75,
+        15.25
+      ],
+      "verb": "cut",
+      "noun": "tomato",
+      "score": 0.0413
+    },
+    {
+      "segment": [
+        21.75,
+        24.25
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0405
+    },
+    {
+      "segment": [
+        49.35,
+        52.65
+      ],
+      "verb": "put",
+      "noun": "oil",
+      "score": 0.0403
+    },
+    {
+      "segment": [
+        40.75,
+        43.25
+      ],
+      "verb": "wash",
+      "noun": "knife",
+      "score": 0.0401
+    },
+    {
+      "segment": [
+        5.35,
+        8.65
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0394
+    },
+    {
+      "segment": [
+        70.35,
+        73.65
+      ],
+      "verb": "insert",
+      "noun": "oil",
+      "score": 0.0389
+    },
+    {
+      "segment": [
+        61.35,
+        64.65
+      ],
+      "verb": "adjust",
+      "noun": "hob",
+      "score": 0.0384
+    },
+    {
+      "segment": [
+        59.35,
+        62.65
+      ],
+      "verb": "turn-on",
+      "noun": "hob",
+      "score": 0.0382
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0378
+    },
+    {
+      "segment": [
+        44.35,
+        47.65
+      ],
+      "verb": "put",
+      "noun": "oil",
+      "score": 0.0378
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0375
+    },
+    {
+      "segment": [
+        15.35,
+        18.65
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0373
+    },
+    {
+      "segment": [
+        76.35,
+        79.65
+      ],
+      "verb": "take",
+      "noun": "pan",
+      "score": 0.0366
+    },
+    {
+      "segment": [
+        55.35,
+        58.65
+      ],
+      "verb": "look",
+      "noun": "book",
+      "score": 0.0366
+    },
+    {
+      "segment": [
+        4.35,
+        7.65
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0364
+    },
+    {
+      "segment": [
+        79.35,
+        82.65
+      ],
+      "verb": "take",
+      "noun": "pan",
+      "score": 0.036
+    },
+    {
+      "segment": [
+        57.75,
+        60.25
+      ],
+      "verb": "put",
+      "noun": "package",
+      "score": 0.0354
+    },
+    {
+      "segment": [
+        77.75,
+        80.25
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.0354
+    },
+    {
+      "segment": [
+        3.35,
+        6.65
+      ],
+      "verb": "cut",
+      "noun": "tomato",
+      "score": 0.0353
+    },
+    {
+      "segment": [
+        61.75,
+        64.25
+      ],
+      "verb": "adjust",
+      "noun": "heat",
+      "score": 0.0349
+    },
+    {
+      "segment": [
+        75.75,
+        78.25
+      ],
+      "verb": "insert",
+      "noun": "oil",
+      "score": 0.0349
+    },
+    {
+      "segment": [
+        24.35,
+        27.65
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.0346
+    },
+    {
+      "segment": [
+        40.35,
+        43.65
+      ],
+      "verb": "put",
+      "noun": "oil",
+      "score": 0.0341
+    },
+    {
+      "segment": [
+        50.75,
+        53.25
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.034
+    },
+    {
+      "segment": [
+        85.35,
+        88.65
+      ],
+      "verb": "check",
+      "noun": "pan",
+      "score": 0.0332
+    },
+    {
+      "segment": [
+        81.75,
+        84.25
+      ],
+      "verb": "put",
+      "noun": "plate",
+      "score": 0.0331
+    },
+    {
+      "segment": [
+        43.75,
+        46.25
+      ],
+      "verb": "open",
+      "noun": "drawer",
+      "score": 0.0328
+    },
+    {
+      "segment": [
+        72.75,
+        75.25
+      ],
+      "verb": "insert",
+      "noun": "oil",
+      "score": 0.0326
+    },
+    {
+      "segment": [
+        79.75,
+        82.25
+      ],
+      "verb": "wash",
+      "noun": "hand",
+      "score": 0.0322
+    },
+    {
+      "segment": [
+        82.75,
+        85.25
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.032
+    },
+    {
+      "segment": [
+        77.35,
+        80.65
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.0315
+    },
+    {
+      "segment": [
+        84.35,
+        87.65
+      ],
+      "verb": "check",
+      "noun": "heat",
+      "score": 0.0313
+    },
+    {
+      "segment": [
+        53.75,
+        56.25
+      ],
+      "verb": "look",
+      "noun": "book",
+      "score": 0.0311
+    },
+    {
+      "segment": [
+        33.35,
+        36.65
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.031
+    },
+    {
+      "segment": [
+        72.75,
+        75.25
+      ],
+      "verb": "apply",
+      "noun": "oil",
+      "score": 0.03
+    },
+    {
+      "segment": [
+        80.75,
+        83.25
+      ],
+      "verb": "take",
+      "noun": "plate",
+      "score": 0.0299
+    },
+    {
+      "segment": [
+        43.35,
+        46.65
+      ],
+      "verb": "open",
+      "noun": "oil",
+      "score": 0.0293
+    },
+    {
+      "segment": [
+        52.75,
+        55.25
+      ],
+      "verb": "take",
+      "noun": "package",
+      "score": 0.0288
+    },
+    {
+      "segment": [
+        5.75,
+        8.25
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.0288
+    },
+    {
+      "segment": [
+        43.75,
+        46.25
+      ],
+      "verb": "open",
+      "noun": "bottle",
+      "score": 0.0283
+    },
+    {
+      "segment": [
+        13.35,
+        16.65
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0282
+    },
+    {
+      "segment": [
+        8.35,
+        11.65
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.0281
+    },
+    {
+      "segment": [
+        23.35,
+        26.65
+      ],
+      "verb": "cut",
+      "noun": "tomato",
+      "score": 0.0275
+    },
+    {
+      "segment": [
+        70.35,
+        73.65
+      ],
+      "verb": "take",
+      "noun": "oil",
+      "score": 0.027
+    },
+    {
+      "segment": [
+        67.35,
+        70.65
+      ],
+      "verb": "adjust",
+      "noun": "oven",
+      "score": 0.027
+    },
+    {
+      "segment": [
+        55.35,
+        58.65
+      ],
+      "verb": "look",
+      "noun": "package",
+      "score": 0.0269
+    },
+    {
+      "segment": [
+        46.75,
+        49.25
+      ],
+      "verb": "pour",
+      "noun": "liquid:washing",
+      "score": 0.0265
+    },
+    {
+      "segment": [
+        73.35,
+        76.65
+      ],
+      "verb": "wash",
+      "noun": "pan",
+      "score": 0.0261
+    },
+    {
+      "segment": [
+        86.75,
+        89.25
+      ],
+      "verb": "take",
+      "noun": "pan",
+      "score": 0.0258
+    },
+    {
+      "segment": [
+        78.75,
+        81.25
+      ],
+      "verb": "put",
+      "noun": "pot",
+      "score": 0.0258
+    },
+    {
+      "segment": [
+        11.75,
+        14.25
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0255
+    },
+    {
+      "segment": [
+        76.35,
+        79.65
+      ],
+      "verb": "put",
+      "noun": "plate",
+      "score": 0.0254
+    },
+    {
+      "segment": [
+        75.35,
+        78.65
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.0253
+    },
+    {
+      "segment": [
+        65.35,
+        68.65
+      ],
+      "verb": "pour",
+      "noun": "water",
+      "score": 0.0249
+    },
+    {
+      "segment": [
+        46.35,
+        49.65
+      ],
+      "verb": "put",
+      "noun": "oil",
+      "score": 0.0244
+    },
+    {
+      "segment": [
+        22.75,
+        25.25
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.024
+    },
+    {
+      "segment": [
+        68.35,
+        71.65
+      ],
+      "verb": "take",
+      "noun": "pan",
+      "score": 0.0234
+    },
+    {
+      "segment": [
+        27.35,
+        30.65
+      ],
+      "verb": "take",
+      "noun": "carrot",
+      "score": 0.0233
+    },
+    {
+      "segment": [
+        31.35,
+        34.65
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0233
+    },
+    {
+      "segment": [
+        70.75,
+        73.25
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.0232
+    },
+    {
+      "segment": [
+        78.35,
+        81.65
+      ],
+      "verb": "put",
+      "noun": "oil",
+      "score": 0.0232
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "cut",
+      "noun": "knife",
+      "score": 0.0226
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "take",
+      "noun": "tomato",
+      "score": 0.0222
+    },
+    {
+      "segment": [
+        32.35,
+        35.65
+      ],
+      "verb": "cut",
+      "noun": "chilli",
+      "score": 0.0221
+    },
+    {
+      "segment": [
+        63.75,
+        66.25
+      ],
+      "verb": "pour",
+      "noun": "water",
+      "score": 0.0216
+    },
+    {
+      "segment": [
+        75.75,
+        78.25
+      ],
+      "verb": "put",
+      "noun": "oil",
+      "score": 0.0215
+    },
+    {
+      "segment": [
+        78.75,
+        81.25
+      ],
+      "verb": "take",
+      "noun": "pot",
+      "score": 0.0215
+    },
+    {
+      "segment": [
+        86.75,
+        89.25
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.0215
+    },
+    {
+      "segment": [
+        22.75,
+        25.25
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0213
+    },
+    {
+      "segment": [
+        44.75,
+        47.25
+      ],
+      "verb": "open",
+      "noun": "package",
+      "score": 0.0212
+    },
+    {
+      "segment": [
+        87.72,
+        89.92
+      ],
+      "verb": "close",
+      "noun": "cupboard",
+      "score": 0.0211
+    },
+    {
+      "segment": [
+        53.75,
+        56.25
+      ],
+      "verb": "look",
+      "noun": "package",
+      "score": 0.021
+    },
+    {
+      "segment": [
+        57.75,
+        60.25
+      ],
+      "verb": "close",
+      "noun": "package",
+      "score": 0.0208
+    },
+    {
+      "segment": [
+        58.75,
+        61.25
+      ],
+      "verb": "take",
+      "noun": "hob",
+      "score": 0.0207
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "take",
+      "noun": "carrot",
+      "score": 0.0206
+    },
+    {
+      "segment": [
+        20.35,
+        23.65
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.0204
+    },
+    {
+      "segment": [
+        42.35,
+        45.65
+      ],
+      "verb": "take",
+      "noun": "bottle",
+      "score": 0.0204
+    },
+    {
+      "segment": [
+        62.35,
+        65.65
+      ],
+      "verb": "check",
+      "noun": "oven",
+      "score": 0.0204
+    },
+    {
+      "segment": [
+        14.75,
+        17.25
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.0203
+    },
+    {
+      "segment": [
+        58.75,
+        61.25
+      ],
+      "verb": "put",
+      "noun": "hob",
+      "score": 0.0203
+    },
+    {
+      "segment": [
+        55.35,
+        58.65
+      ],
+      "verb": "flip",
+      "noun": "recipe",
+      "score": 0.0197
+    },
+    {
+      "segment": [
+        7.35,
+        10.65
+      ],
+      "verb": "cut",
+      "noun": "carrot",
+      "score": 0.0195
+    },
+    {
+      "segment": [
+        14.75,
+        17.25
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0195
+    },
+    {
+      "segment": [
+        0.0,
+        2.25
+      ],
+      "verb": "move",
+      "noun": "knife",
+      "score": 0.0194
+    },
+    {
+      "segment": [
+        37.35,
+        40.65
+      ],
+      "verb": "take",
+      "noun": "carrot",
+      "score": 0.0193
+    },
+    {
+      "segment": [
+        17.35,
+        20.65
+      ],
+      "verb": "take",
+      "noun": "carrot",
+      "score": 0.0192
+    },
+    {
+      "segment": [
+        43.35,
+        46.65
+      ],
+      "verb": "close",
+      "noun": "bottle",
+      "score": 0.0188
+    },
+    {
+      "segment": [
+        50.75,
+        53.25
+      ],
+      "verb": "put",
+      "noun": "bottle",
+      "score": 0.0185
+    },
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "take",
+      "noun": "carrot",
+      "score": 0.0184
+    },
+    {
+      "segment": [
+        1.75,
+        4.25
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.0183
+    },
+    {
+      "segment": [
+        56.75,
+        59.25
+      ],
+      "verb": "flip",
+      "noun": "book",
+      "score": 0.0182
+    },
+    {
+      "segment": [
+        10.75,
+        13.25
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0179
+    },
+    {
+      "segment": [
+        39.35,
+        42.65
+      ],
+      "verb": "cut",
+      "noun": "knife",
+      "score": 0.0178
+    },
+    {
+      "segment": [
+        2.75,
+        5.25
+      ],
+      "verb": "take",
+      "noun": "onion",
+      "score": 0.0178
+    },
+    {
+      "segment": [
+        85.35,
+        88.65
+      ],
+      "verb": "check",
+      "noun": "oil",
+      "score": 0.0178
+    },
+    {
+      "segment": [
+        10.75,
+        13.25
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.0174
+    },
+    {
+      "segment": [
+        63.35,
+        66.65
+      ],
+      "verb": "adjust",
+      "noun": "water",
+      "score": 0.0173
+    },
+    {
+      "segment": [
+        79.75,
+        82.25
+      ],
+      "verb": "wash",
+      "noun": "pan",
+      "score": 0.0172
+    },
+    {
+      "segment": [
+        79.75,
+        82.25
+      ],
+      "verb": "put",
+      "noun": "glove",
+      "score": 0.0172
+    },
+    {
+      "segment": [
+        83.75,
+        86.25
+      ],
+      "verb": "check",
+      "noun": "heat",
+      "score": 0.017
+    },
+    {
+      "segment": [
+        86.75,
+        89.25
+      ],
+      "verb": "check",
+      "noun": "pan",
+      "score": 0.0169
+    },
+    {
+      "segment": [
+        83.75,
+        86.25
+      ],
+      "verb": "check",
+      "noun": "pan",
+      "score": 0.0167
+    },
+    {
+      "segment": [
+        51.35,
+        54.65
+      ],
+      "verb": "take",
+      "noun": "stock",
+      "score": 0.0165
+    },
+    {
+      "segment": [
+        33.35,
+        36.65
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.0165
+    },
+    {
+      "segment": [
+        35.75,
+        38.25
+      ],
+      "verb": "take",
+      "noun": "carrot",
+      "score": 0.0165
+    },
+    {
+      "segment": [
+        8.75,
+        11.25
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0163
+    },
+    {
+      "segment": [
+        27.75,
+        30.25
+      ],
+      "verb": "put",
+      "noun": "carrot",
+      "score": 0.0162
+    },
+    {
+      "segment": [
+        42.75,
+        45.25
+      ],
+      "verb": "take",
+      "noun": "salt",
+      "score": 0.0161
+    },
+    {
+      "segment": [
+        67.35,
+        70.65
+      ],
+      "verb": "adjust",
+      "noun": "water",
+      "score": 0.0161
+    },
+    {
+      "segment": [
+        33.35,
+        36.65
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.016
+    },
+    {
+      "segment": [
+        50.35,
+        53.65
+      ],
+      "verb": "take",
+      "noun": "cereal",
+      "score": 0.0158
+    },
+    {
+      "segment": [
+        18.75,
+        21.25
+      ],
+      "verb": "put",
+      "noun": "carrot",
+      "score": 0.0157
+    },
+    {
+      "segment": [
+        2.75,
+        5.25
+      ],
+      "verb": "put",
+      "noun": "onion",
+      "score": 0.0156
+    },
+    {
+      "segment": [
+        49.35,
+        52.65
+      ],
+      "verb": "put",
+      "noun": "liquid:washing",
+      "score": 0.0155
+    },
+    {
+      "segment": [
+        52.75,
+        55.25
+      ],
+      "verb": "take",
+      "noun": "book",
+      "score": 0.0154
+    },
+    {
+      "segment": [
+        49.75,
+        52.25
+      ],
+      "verb": "take",
+      "noun": "oil",
+      "score": 0.0151
+    },
+    {
+      "segment": [
+        6.75,
+        9.25
+      ],
+      "verb": "put",
+      "noun": "carrot",
+      "score": 0.0151
+    },
+    {
+      "segment": [
+        60.35,
+        63.65
+      ],
+      "verb": "put",
+      "noun": "hob",
+      "score": 0.0151
+    },
+    {
+      "segment": [
+        51.35,
+        54.65
+      ],
+      "verb": "take",
+      "noun": "package",
+      "score": 0.0149
+    },
+    {
+      "segment": [
+        52.35,
+        55.65
+      ],
+      "verb": "flip",
+      "noun": "book",
+      "score": 0.0148
+    },
+    {
+      "segment": [
+        80.35,
+        83.65
+      ],
+      "verb": "put",
+      "noun": "plate",
+      "score": 0.0147
+    },
+    {
+      "segment": [
+        40.35,
+        43.65
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.0146
+    },
+    {
+      "segment": [
+        35.75,
+        38.25
+      ],
+      "verb": "cut",
+      "noun": "onion",
+      "score": 0.0146
+    },
+    {
+      "segment": [
+        35.35,
+        38.65
+      ],
+      "verb": "take",
+      "noun": "onion",
+      "score": 0.0146
+    },
+    {
+      "segment": [
+        53.75,
+        56.25
+      ],
+      "verb": "flip",
+      "noun": "recipe",
+      "score": 0.0145
+    },
+    {
+      "segment": [
+        51.75,
+        54.25
+      ],
+      "verb": "put",
+      "noun": "cheese",
+      "score": 0.0144
+    },
+    {
+      "segment": [
+        79.35,
+        82.65
+      ],
+      "verb": "take",
+      "noun": "plate",
+      "score": 0.0144
+    },
+    {
+      "segment": [
+        59.35,
+        62.65
+      ],
+      "verb": "turn-on",
+      "noun": "heat",
+      "score": 0.0144
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0143
+    },
+    {
+      "segment": [
+        33.75,
+        36.25
+      ],
+      "verb": "take",
+      "noun": "chilli",
+      "score": 0.0141
+    },
+    {
+      "segment": [
+        37.35,
+        40.65
+      ],
+      "verb": "put",
+      "noun": "carrot",
+      "score": 0.014
+    },
+    {
+      "segment": [
+        18.35,
+        21.65
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0139
+    },
+    {
+      "segment": [
+        71.75,
+        74.25
+      ],
+      "verb": "take",
+      "noun": "oil",
+      "score": 0.0136
+    },
+    {
+      "segment": [
+        45.75,
+        48.25
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.0133
+    },
+    {
+      "segment": [
+        39.35,
+        42.65
+      ],
+      "verb": "wash",
+      "noun": "knife",
+      "score": 0.0133
+    },
+    {
+      "segment": [
+        1.35,
+        4.65
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0132
+    },
+    {
+      "segment": [
+        60.75,
+        63.25
+      ],
+      "verb": "turn-on",
+      "noun": "oven",
+      "score": 0.0132
+    },
+    {
+      "segment": [
+        30.75,
+        33.25
+      ],
+      "verb": "put",
+      "noun": "carrot",
+      "score": 0.0131
+    },
+    {
+      "segment": [
+        28.75,
+        31.25
+      ],
+      "verb": "take",
+      "noun": "carrot",
+      "score": 0.0129
+    },
+    {
+      "segment": [
+        84.75,
+        87.25
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.0125
+    },
+    {
+      "segment": [
+        80.75,
+        83.25
+      ],
+      "verb": "move",
+      "noun": "pan",
+      "score": 0.0124
+    },
+    {
+      "segment": [
+        33.75,
+        36.25
+      ],
+      "verb": "put",
+      "noun": "chilli",
+      "score": 0.0123
+    },
+    {
+      "segment": [
+        0.35,
+        3.65
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.0122
+    },
+    {
+      "segment": [
+        45.75,
+        48.25
+      ],
+      "verb": "insert",
+      "noun": "plate",
+      "score": 0.0121
+    },
+    {
+      "segment": [
+        54.75,
+        57.25
+      ],
+      "verb": "pour",
+      "noun": "recipe",
+      "score": 0.0118
+    },
+    {
+      "segment": [
+        20.35,
+        23.65
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0118
+    },
+    {
+      "segment": [
+        23.35,
+        26.65
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0116
+    },
+    {
+      "segment": [
+        45.35,
+        48.65
+      ],
+      "verb": "insert",
+      "noun": "oil",
+      "score": 0.0116
+    },
+    {
+      "segment": [
+        74.35,
+        77.65
+      ],
+      "verb": "put",
+      "noun": "oil",
+      "score": 0.0113
+    },
+    {
+      "segment": [
+        66.75,
+        69.25
+      ],
+      "verb": "put",
+      "noun": "glove",
+      "score": 0.0113
+    },
+    {
+      "segment": [
+        45.75,
+        48.25
+      ],
+      "verb": "put",
+      "noun": "oil",
+      "score": 0.0111
+    },
+    {
+      "segment": [
+        52.75,
+        55.25
+      ],
+      "verb": "take",
+      "noun": "recipe",
+      "score": 0.011
+    },
+    {
+      "segment": [
+        54.75,
+        57.25
+      ],
+      "verb": "look",
+      "noun": "liquid",
+      "score": 0.0109
+    },
+    {
+      "segment": [
+        7.35,
+        10.65
+      ],
+      "verb": "take",
+      "noun": "carrot",
+      "score": 0.0105
+    },
+    {
+      "segment": [
+        56.75,
+        59.25
+      ],
+      "verb": "look",
+      "noun": "package",
+      "score": 0.0105
+    },
+    {
+      "segment": [
+        38.75,
+        41.25
+      ],
+      "verb": "cut",
+      "noun": "pepper",
+      "score": 0.0105
+    },
+    {
+      "segment": [
+        55.75,
+        58.25
+      ],
+      "verb": "pour",
+      "noun": "package",
+      "score": 0.0105
+    },
+    {
+      "segment": [
+        48.75,
+        51.25
+      ],
+      "verb": "insert",
+      "noun": "oil",
+      "score": 0.0104
+    },
+    {
+      "segment": [
+        15.35,
+        18.65
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0104
+    },
+    {
+      "segment": [
+        61.75,
+        64.25
+      ],
+      "verb": "check",
+      "noun": "oven",
+      "score": 0.0102
+    },
+    {
+      "segment": [
+        47.75,
+        50.25
+      ],
+      "verb": "pour",
+      "noun": "pan",
+      "score": 0.0101
+    },
+    {
+      "segment": [
+        54.75,
+        57.25
+      ],
+      "verb": "pour",
+      "noun": "liquid",
+      "score": 0.0099
+    },
+    {
+      "segment": [
+        68.75,
+        71.25
+      ],
+      "verb": "put",
+      "noun": "oven",
+      "score": 0.0098
+    },
+    {
+      "segment": [
+        13.35,
+        16.65
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.0095
+    },
+    {
+      "segment": [
+        67.35,
+        70.65
+      ],
+      "verb": "pour",
+      "noun": "oven",
+      "score": 0.0095
+    },
+    {
+      "segment": [
+        3.35,
+        6.65
+      ],
+      "verb": "take",
+      "noun": "onion",
+      "score": 0.0094
+    },
+    {
+      "segment": [
+        69.35,
+        72.65
+      ],
+      "verb": "put",
+      "noun": "pan",
+      "score": 0.0094
+    },
+    {
+      "segment": [
+        59.35,
+        62.65
+      ],
+      "verb": "take",
+      "noun": "hob",
+      "score": 0.0092
+    },
+    {
+      "segment": [
+        65.75,
+        68.25
+      ],
+      "verb": "adjust",
+      "noun": "water",
+      "score": 0.0092
+    },
+    {
+      "segment": [
+        66.75,
+        69.25
+      ],
+      "verb": "put",
+      "noun": "oven",
+      "score": 0.0091
+    },
+    {
+      "segment": [
+        85.35,
+        88.65
+      ],
+      "verb": "take",
+      "noun": "pan",
+      "score": 0.009
+    },
+    {
+      "segment": [
+        65.35,
+        68.65
+      ],
+      "verb": "put",
+      "noun": "water",
+      "score": 0.009
+    },
+    {
+      "segment": [
+        63.35,
+        66.65
+      ],
+      "verb": "put",
+      "noun": "oven",
+      "score": 0.0089
+    },
+    {
+      "segment": [
+        42.75,
+        45.25
+      ],
+      "verb": "take",
+      "noun": "vinegar",
+      "score": 0.0089
+    },
+    {
+      "segment": [
+        5.35,
+        8.65
+      ],
+      "verb": "take",
+      "noun": "carrot",
+      "score": 0.0089
+    },
+    {
+      "segment": [
+        55.35,
+        58.65
+      ],
+      "verb": "flip",
+      "noun": "book",
+      "score": 0.0088
+    },
+    {
+      "segment": [
+        85.35,
+        88.65
+      ],
+      "verb": "insert",
+      "noun": "pan",
+      "score": 0.0087
+    },
+    {
+      "segment": [
+        26.35,
+        29.65
+      ],
+      "verb": "put",
+      "noun": "carrot",
+      "score": 0.0087
+    },
+    {
+      "segment": [
+        54.35,
+        57.65
+      ],
+      "verb": "take",
+      "noun": "recipe",
+      "score": 0.0085
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.0084
+    },
+    {
+      "segment": [
+        66.75,
+        69.25
+      ],
+      "verb": "adjust",
+      "noun": "glove",
+      "score": 0.0084
+    },
+    {
+      "segment": [
+        3.35,
+        6.65
+      ],
+      "verb": "put",
+      "noun": "onion",
+      "score": 0.0083
+    },
+    {
+      "segment": [
+        51.35,
+        54.65
+      ],
+      "verb": "remove",
+      "noun": "package",
+      "score": 0.0083
+    },
+    {
+      "segment": [
+        76.75,
+        79.25
+      ],
+      "verb": "take",
+      "noun": "pan",
+      "score": 0.0083
+    },
+    {
+      "segment": [
+        32.75,
+        35.25
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0082
+    },
+    {
+      "segment": [
+        57.75,
+        60.25
+      ],
+      "verb": "put",
+      "noun": "book",
+      "score": 0.0082
+    },
+    {
+      "segment": [
+        84.75,
+        87.25
+      ],
+      "verb": "check",
+      "noun": "sausage",
+      "score": 0.008
+    },
+    {
+      "segment": [
+        20.75,
+        23.25
+      ],
+      "verb": "cut",
+      "noun": "pan",
+      "score": 0.0078
+    },
+    {
+      "segment": [
+        5.35,
+        8.65
+      ],
+      "verb": "put",
+      "noun": "carrot",
+      "score": 0.0078
+    },
+    {
+      "segment": [
+        51.35,
+        54.65
+      ],
+      "verb": "take",
+      "noun": "book",
+      "score": 0.0077
+    },
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0077
+    },
+    {
+      "segment": [
+        62.75,
+        65.25
+      ],
+      "verb": "adjust",
+      "noun": "water",
+      "score": 0.0077
+    },
+    {
+      "segment": [
+        20.35,
+        23.65
+      ],
+      "verb": "cut",
+      "noun": "tap",
+      "score": 0.0076
+    },
+    {
+      "segment": [
+        36.75,
+        39.25
+      ],
+      "verb": "take",
+      "noun": "onion",
+      "score": 0.0075
+    },
+    {
+      "segment": [
+        38.75,
+        41.25
+      ],
+      "verb": "put",
+      "noun": "carrot",
+      "score": 0.0073
+    },
+    {
+      "segment": [
+        72.35,
+        75.65
+      ],
+      "verb": "insert",
+      "noun": "oil",
+      "score": 0.0073
+    },
+    {
+      "segment": [
+        68.75,
+        71.25
+      ],
+      "verb": "take",
+      "noun": "oven",
+      "score": 0.0073
+    },
+    {
+      "segment": [
+        43.75,
+        46.25
+      ],
+      "verb": "close",
+      "noun": "oil",
+      "score": 0.0072
+    },
+    {
+      "segment": [
+        65.75,
+        68.25
+      ],
+      "verb": "pour",
+      "noun": "oven",
+      "score": 0.0069
+    },
+    {
+      "segment": [
+        68.75,
+        71.25
+      ],
+      "verb": "adjust",
+      "noun": "water",
+      "score": 0.0067
+    },
+    {
+      "segment": [
+        87.72,
+        89.92
+      ],
+      "verb": "close",
+      "noun": "tap",
+      "score": 0.0066
+    },
+    {
+      "segment": [
+        61.35,
+        64.65
+      ],
+      "verb": "adjust",
+      "noun": "heat",
+      "score": 0.0064
+    },
+    {
+      "segment": [
+        58.35,
+        61.65
+      ],
+      "verb": "turn-on",
+      "noun": "recipe",
+      "score": 0.0061
+    },
+    {
+      "segment": [
+        78.35,
+        81.65
+      ],
+      "verb": "put",
+      "noun": "pot",
+      "score": 0.0055
+    },
+    {
+      "segment": [
+        57.75,
+        60.25
+      ],
+      "verb": "put",
+      "noun": "recipe",
+      "score": 0.0054
+    },
+    {
+      "segment": [
+        65.35,
+        68.65
+      ],
+      "verb": "put",
+      "noun": "glove",
+      "score": 0.0053
+    },
+    {
+      "segment": [
+        65.75,
+        68.25
+      ],
+      "verb": "pour",
+      "noun": "water",
+      "score": 0.0051
+    },
+    {
+      "segment": [
+        78.75,
+        81.25
+      ],
+      "verb": "put",
+      "noun": "oil",
+      "score": 0.005
+    },
+    {
+      "segment": [
+        46.35,
+        49.65
+      ],
+      "verb": "pour",
+      "noun": "liquid:washing",
+      "score": 0.005
+    },
+    {
+      "segment": [
+        22.35,
+        25.65
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.0047
+    },
+    {
+      "segment": [
+        64.75,
+        67.25
+      ],
+      "verb": "put",
+      "noun": "water",
+      "score": 0.0046
+    },
+    {
+      "segment": [
+        1.35,
+        4.65
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.0042
+    },
+    {
+      "segment": [
+        37.75,
+        40.25
+      ],
+      "verb": "take",
+      "noun": "carrot",
+      "score": 0.0042
+    },
+    {
+      "segment": [
+        20.75,
+        23.25
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.0041
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "put",
+      "noun": "pepper",
+      "score": 0.0041
+    },
+    {
+      "segment": [
+        43.35,
+        46.65
+      ],
+      "verb": "open",
+      "noun": "bottle",
+      "score": 0.004
+    },
+    {
+      "segment": [
+        10.35,
+        13.65
+      ],
+      "verb": "take",
+      "noun": "pepper",
+      "score": 0.0039
+    },
+    {
+      "segment": [
+        85.75,
+        88.25
+      ],
+      "verb": "check",
+      "noun": "oil",
+      "score": 0.0038
+    },
+    {
+      "segment": [
+        0.75,
+        3.25
+      ],
+      "verb": "cut",
+      "noun": "knife",
+      "score": 0.0036
+    },
+    {
+      "segment": [
+        59.75,
+        62.25
+      ],
+      "verb": "turn-on",
+      "noun": "heat",
+      "score": 0.0032
+    },
+    {
+      "segment": [
+        57.35,
+        60.65
+      ],
+      "verb": "put",
+      "noun": "package",
+      "score": 0.003
+    },
+    {
+      "segment": [
+        47.35,
+        50.65
+      ],
+      "verb": "pour",
+      "noun": "pan",
+      "score": 0.0022
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        42.0,
+        48.0
+      ]
+    },
+    {
+      "segment": [
+        58.0,
+        64.0
+      ]
+    }
+  ]
+}
